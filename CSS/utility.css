@@ -1,0 +1,333 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Hide horizontal overflow */
+  scrollbar-width: thin;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+:root {
+  --primary-color: #ab5c27;
+  --secondary-color: #0a6838;
+  --background-color: #f3f3f3;
+  --third-color: #e3e3e3;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-content: center;
+}
+
+.border {
+  margin: 0 35px;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 48px;
+  color: var(--secondary-color);
+}
+
+/* NAVBAR */
+
+.navbar h1 {
+  font-family: "Marlboro Regular";
+  color: var(--primary-color);
+  font-size: 50px;
+  justify-self: center;
+  font-weight: normal;
+}
+
+.navbar {
+  height: 60px;
+  width: 100%;
+  background-color: var(--background-color);
+  color: var(--secondary-color);
+  position: relative;
+}
+
+.navbar .main-logo a {
+  text-decoration: none;
+}
+
+.navbar .main-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+}
+
+.navbar .main-nav {
+  justify-self: start;
+}
+
+.navbar .second-nav {
+  justify-self: end;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: var(--secondary-color);
+  font-family: "lusitana";
+  transition-duration: 1s;
+}
+
+.navbar .second-nav a {
+  margin-left: 20px;
+}
+
+.navbar .main-nav a {
+  margin-right: 20px;
+}
+
+.navbar .grid {
+  height: 60px;
+  grid-template-rows: 60px;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar .menu-btn {
+  position: absolute;
+  top: 30%;
+  color: var(--secondary-color);
+  font-size: 25px;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+
+.navbar i {
+  visibility: hidden;
+}
+
+.navbar .menu-btn,
+.right-hand-menu i:hover {
+  transform: scale(1.05);
+}
+
+.navbar .border {
+  position: relative;
+}
+
+.navbar .right-hand-menu {
+  visibility: hidden;
+  display: flex;
+  position: absolute;
+  top: 30%;
+  right: 0%;
+  color: var(--secondary-color);
+  font-size: 25px;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+
+.right-hand-menu i {
+  margin-left: 15px;
+}
+
+/* NAVBAR MESSAGE BOARD */
+
+.message-board {
+  height: 30px;
+  background-color: var(--secondary-color);
+  color: white;
+
+  display: relative;
+  overflow: hidden;
+  font-family: "great vibes";
+
+  white-space: nowrap; /* Prevents the text from breaking into a new line */
+  overflow: hidden; /* Ensures that the overflowing text doesn't cause a horizontal scrollbar */
+  text-overflow: clip;
+}
+.dottie {
+  color: var(--secondary-color);
+}
+
+.message-board p {
+  position: absolute;
+  left: calc(250px * 6);
+  top: 62px;
+  font-size: 22px;
+  animation: right-left;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.message-board .p1 {
+  animation-delay: calc(30s / 6 * (6 - 1) * -1);
+}
+.message-board .p2 {
+  animation-delay: calc(30s / 6 * (6 - 2) * -1);
+}
+.message-board .p3 {
+  animation-delay: calc(30s / 6 * (6 - 3) * -1);
+}
+.message-board .p4 {
+  animation-delay: calc(30s / 6 * (6 - 4) * -1);
+}
+.message-board .p6 {
+  animation-delay: calc(30s / 6 * (6 - 5) * -1);
+}
+.message-board .p7 {
+  animation-delay: calc(30s / 6 * (6 - 6) * -1);
+}
+
+@keyframes right-left {
+  from {
+  }
+  to {
+    left: -50%;
+  }
+}
+
+/* FOOTER */
+
+footer {
+  background-color: var(--secondary-color);
+  width: 100%;
+  height: 100px;
+  font-family: "lusitana";
+  position: relative;
+}
+
+footer .container {
+  width: 100%;
+  max-width: 100%;
+}
+
+footer .grid {
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 100px;
+  width: 100%;
+}
+
+footer .grid1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+footer i {
+  color: var(--background-color);
+  margin-top: -25px;
+  display: flex;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+footer .email-in {
+  color: var(--background-color);
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+footer .email a {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  align-self: center;
+}
+
+footer h1 {
+  font-family: "Marlboro Regular";
+  color: var(--background-color);
+  font-size: 50px;
+  justify-self: center;
+  font-weight: normal;
+  margin-bottom: 0;
+}
+
+footer h2 {
+  font-family: "great vibes";
+  color: var(--background-color);
+  font-size: 25px;
+  font-weight: normal;
+  margin-top: 0;
+}
+
+footer .logo-name-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+footer .copyright-bottom {
+  font-family: "lusitana";
+  color: var(--background-color);
+  background-color: var(--secondary-color);
+  font-size: 10px;
+}
+
+footer .grid4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 1180px) {
+  /* NAVBAR */
+
+  .navbar i {
+    visibility: visible;
+  }
+
+  .menu-btn,
+  .right-hand-menu {
+    visibility: visible;
+  }
+
+  .main-nav ul {
+    visibility: hidden;
+    transition-duration: 0;
+  }
+
+  .second-nav ul {
+    visibility: hidden;
+    transition-duration: 0;
+  }
+}

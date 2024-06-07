@@ -1,0 +1,271 @@
+/* LOADER */
+
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  font-family: "marlboro";
+  animation: fadeOut 1s ease-out forwards;
+  animation-iteration-count: 1;
+  animation-delay: 1.2s;
+  pointer-events: none;
+}
+
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0;
+  font-weight: normal;
+  color: var(--primary-color);
+  font-size: 48px;
+  animation: typing 1s steps(24, end), fadeOut 1s 1s forwards;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 20%;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* MAIN IMAGES SECTION */
+
+img {
+  max-width: 100%;
+}
+
+.main-image {
+  height: calc(100vh);
+  width: 100%;
+  margin-top: 30px;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+}
+
+#img-1,
+#img-2 {
+  position: absolute;
+}
+
+#img-2 {
+  right: 0;
+  background-size: cover;
+  width: 700px;
+  height: 700px;
+}
+
+#img-1 {
+  left: 0;
+  top: 0;
+  object-fit: cover;
+  /* width: 700px;
+  height: 700px; */
+}
+
+/* MAIN SECTION */
+
+.main-section .border {
+  padding: 35px 0px;
+  background-color: var(--background-color);
+}
+
+.main-section {
+  height: 1450px;
+  width: 100%;
+  background-color: var(--background-color);
+  color: var(--secondary-color);
+  font-family: "lusitana";
+}
+
+.main-section h1 {
+  font-weight: bold;
+  font-size: 48px;
+}
+
+.main-section .flex {
+  justify-content: space-between;
+  gap: 15px;
+  margin: 5px;
+}
+
+.product-box {
+  width: calc(100% - 45px);
+  height: 400px;
+  margin-top: 35px;
+  background-color: var(--background-color);
+  /* border: 1px solid black; */
+  transition-duration: 0.5s;
+  /* margin: 20px 0px 0px 15px; */
+}
+
+.product-box:hover {
+  border: 1px solid black;
+  transform: scale(1.01);
+  cursor: pointer;
+}
+
+.box-inside {
+  position: relative;
+  width: 100%; /* Set width to 100% */
+  height: 0; /* Set initial height to 0 */
+  padding-top: 100%; /* Create a square aspect ratio using padding */
+  background-color: var(--third-color);
+}
+
+.box-inside img {
+  position: absolute;
+  top: 0;
+}
+
+.product-content {
+  margin: 15px 0 0 10px;
+}
+
+.price {
+  margin-top: 10px;
+}
+
+.color-choices {
+  display: flex;
+  margin-top: 10px;
+}
+
+.color-circle {
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.color1 {
+  background-color: white;
+}
+
+.color2 {
+  background-color: var(--secondary-color);
+}
+
+.color3 {
+  background-color: grey;
+}
+
+.color4 {
+  background-color: rgb(41, 41, 41);
+}
+
+/* CATEGORIES */
+
+.categories {
+  width: 100%;
+
+  height: 600px;
+  background-color: var(--background-color);
+}
+
+.categories h1 {
+  font-weight: bold;
+  font-size: 48px;
+  color: var(--secondary-color);
+  margin: 0 35px;
+}
+
+.category-box {
+  width: 33vw;
+  height: 29.5vw;
+
+  /* width: calc(100% - 30px);
+  height: calc(75% - 30px); */
+  margin-top: 35px;
+  background-color: var(--third-color);
+  font-family: "marlboro";
+  color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 76px;
+  position: relative;
+  overflow: hidden;
+
+  transition-duration: 0s;
+}
+
+.category-box:hover {
+  transition-duration: 1s;
+}
+
+.category-box::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(174, 174, 174, 0.5); /* Adjust the color and opacity */
+  pointer-events: none; /* Allow clicking through the overlay if needed */
+}
+
+.category-box:hover {
+  border: 1px solid black;
+  transform: scale(1.01);
+  cursor: pointer;
+}
+
+.categories .text-in-collection-box {
+  z-index: 10;
+  cursor: pointer;
+}
+
+.categories .flex {
+  justify-content: space-between;
+  gap: 15px;
+  margin: 5px;
+  height: 400px;
+}
+
+.category-box img {
+  position: absolute;
+  width: 100%;
+}
+
+.categories a {
+  text-decoration: none;
+  width: calc(100% - 30px);
+  height: calc(100% - 30px);
+}
+
+.categories .flex {
+  margin: 0 35px 5px 35px;
+}
+
+.categories .cat-box1 {
+  background-image: url("images/creation adam t shirt/creation adam t shirt back model.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/* 
+.categories .cat-box2 {
+}
+
+.categories .cat-box3 {
+} */
