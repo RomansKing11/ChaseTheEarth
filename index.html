@@ -29,18 +29,58 @@
     />
     <link rel="stylesheet" href="/CSS/style.css" />
     <link rel="stylesheet" href="/CSS/utility.css" />
-    <script src="script.js" async defer></script>
+    <script src="script.js" defer></script>
   </head>
   <body>
+    <!-- LOADING SCREEN -->
+
     <div class="loading-screen">
       <h1 class="typewriter">ChaseTheEarth</h1>
     </div>
+
+    <!-- MENU FOR MOBILE -->
+
+    <div id="menu-mobile">
+      <div class="container">
+        <span id="exit-btn">
+          <!-- <div class="sub-square"></div> -->
+          <!-- ONLY FOR WITHOUT WIFI -->
+          <i class="fa-solid fa-x"></i>
+        </span>
+        <div class="grid">
+          <div>
+            <span>
+              <a href="/index.html">Home</a>
+            </span>
+          </div>
+          <div>
+            <span>
+              <a href="/Collections.html">Collections</a>
+            </span>
+          </div>
+          <div>
+            <span>
+              <a href="/">Our Goals</a>
+            </span>
+          </div>
+          <div>
+            <span>
+              <a href="/aboutUs.html">About Us</a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
 
     <div class="main-content">
       <nav class="navbar">
         <div class="container">
           <div class="border grid">
-            <div class="menu-btn">
+            <div id="menu-btn">
+              <!-- <div class="sub-square"></div> -->
+              <!-- ONLY FOR WITHOUT WIFI -->
               <i class="fa-solid fa-bars"></i>
             </div>
             <div class="main-nav">
@@ -70,6 +110,8 @@
                 <i class="fa-solid fa-language"></i>
               </div>
               <div class="cart-icon">
+                <!-- <div class="sub-square"></div> -->
+                <!-- ONLY FOR WITHOUT WIFI -->
                 <i class="fa-solid fa-bag-shopping"></i>
               </div>
             </div>
@@ -112,6 +154,11 @@
 
       <section class="main-image">
         <img id="img-1" src="images/main image back min.png" alt="" />
+        <img
+          class="image-main-mobile"
+          src="images/unisex-heavy-blend-hoodie-white-front-665640626e11a.png"
+          alt=""
+        />
         <!-- <img
           id="img-2"
           src="images\unisex-heavy-blend-hoodie-white-back-665640626f460.png"
@@ -125,7 +172,7 @@
             <div>
               <h1>New Pieces</h1>
             </div>
-            <div class="product-border flex">
+            <div class="product-border grid">
               <!--PRODUCT BOX 1-->
               <div class="product-box box-1">
                 <div class="box-inside">
@@ -207,7 +254,7 @@
 
             <!--SECOND LAYER-->
 
-            <div class="product-border flex">
+            <div class="product-border grid">
               <!--PRODUCT BOX 1-->
               <div class="product-box box-1">
                 <div class="box-inside">
@@ -286,7 +333,7 @@
 
             <!-- THIRD LAYER -->
 
-            <div class="product-border flex">
+            <div class="product-border grid">
               <!--PRODUCT BOX 1-->
               <div class="product-box box-1">
                 <div class="box-inside">
@@ -368,22 +415,24 @@
 
       <section class="categories">
         <div class="container">
-          <h1>Categories</h1>
-          <div class="flex">
-            <div class="category-box cat-box1">
-              <div class="text-in-collection-box">T-Shirts</div>
-              <!-- <img
-                src="images\creation adam t shirt\creation adam t shirt back model.png"
-                alt=""
-              /> -->
-            </div>
-            <div class="category-box cat-box1">
-              <div class="text-in-collection-box">Hoodies</div>
-              <!-- <img src="images\creationadam\grey back model.png" alt="" /> -->
-            </div>
-            <div class="category-box cat-box1">
-              <div class="text-in-collection-box">Jeans</div>
-              <!-- <img src="images\creationadam\grey front model.png" alt="" /> -->
+          <div class="border">
+            <h1>Categories</h1>
+            <div class="grid">
+              <div class="category-box cat-box1">
+                <div class="text-in-collection-box">T-Shirts</div>
+                <img
+                  src="images/unisex-heavy-blend-hoodie-white-front-665640626e11a.png"
+                  alt=""
+                />
+              </div>
+              <div class="category-box cat-box1">
+                <div class="text-in-collection-box">Hoodies</div>
+                <img src="images\creationadam\grey back model.png" alt="" />
+              </div>
+              <div class="category-box cat-box1">
+                <div class="text-in-collection-box">Jeans</div>
+                <img src="images\creationadam\grey front model.png" alt="" />
+              </div>
             </div>
           </div>
         </div>
@@ -393,30 +442,42 @@
 
       <footer>
         <div class="container">
-          <div class="grid">
-            <div class="grid1">
-              <div class="logo-name-footer">
-                <h1>ChaseTheEarth</h1>
-                <h2>Become The Difference</h2>
+          <div class="border">
+            <div class="grid">
+              <div class="grid1">
+                <div class="logo-name-footer">
+                  <h1>ChaseTheEarth</h1>
+                  <h2>Become The Difference</h2>
+                </div>
               </div>
-            </div>
-            <div class="grid2"></div>
-            <div class="grid3"></div>
-            <div class="grid4">
-              <div class="email">
-                <a href="mailto:help@chasetheearth.com"
-                  ><p class="email-in">help@chasetheearth.com</p></a
-                >
+              <div class="grid2">
+                <div class="flex">
+                  <h3>Navigation</h3>
+                  <ul>
+                    <a href="/"><li>Home</li></a>
+                    <a href="Collections.html"><li>Collections</li></a>
+                    <a href="/"><li>Our Goals</li></a>
+                    <a href="aboutUs.html"><li>About Us</li></a>
+                  </ul>
+                </div>
               </div>
-              <div>
-                <a
-                  href="https://www.instagram.com/chasetheearthofficial/?next=%2Foctagonxperience%2F"
-                  target="_blank"
-                  ><i class="fa-brands fa-instagram"></i
-                ></a>
-                <a href=""><i class="fa-brands fa-tiktok"></i></a>
-                <a href=""><i class="fa-brands fa-youtube"></i></a>
-                <a href=""><i class="fa-brands fa-twitter"></i></a>
+              <div class="grid3"></div>
+              <div class="grid4">
+                <div class="email">
+                  <a href="mailto:help@chasetheearth.com"
+                    ><p class="email-in">help@chasetheearth.com</p></a
+                  >
+                </div>
+                <div>
+                  <a
+                    href="https://www.instagram.com/chasetheearthofficial/?next=%2Foctagonxperience%2F"
+                    target="_blank"
+                    ><i class="fa-brands fa-instagram"></i
+                  ></a>
+                  <a href=""><i class="fa-brands fa-tiktok"></i></a>
+                  <a href=""><i class="fa-brands fa-youtube"></i></a>
+                  <a href=""><i class="fa-brands fa-twitter"></i></a>
+                </div>
               </div>
             </div>
           </div>

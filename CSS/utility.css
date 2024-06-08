@@ -56,6 +56,13 @@ h1 {
   color: var(--secondary-color);
 }
 
+.sub-square {
+  visibility: hidden;
+  width: 20px;
+  height: 20px;
+  background-color: black;
+}
+
 /* NAVBAR */
 
 .navbar h1 {
@@ -120,7 +127,7 @@ h1 {
   justify-content: center;
 }
 
-.navbar .menu-btn {
+.navbar #menu-btn {
   position: absolute;
   top: 30%;
   color: var(--secondary-color);
@@ -135,7 +142,7 @@ h1 {
   visibility: hidden;
 }
 
-.navbar .menu-btn,
+.navbar #menu-btn,
 .right-hand-menu i:hover {
   transform: scale(1.05);
 }
@@ -177,6 +184,7 @@ h1 {
   overflow: hidden; /* Ensures that the overflowing text doesn't cause a horizontal scrollbar */
   text-overflow: clip;
 }
+
 .dottie {
   color: var(--secondary-color);
 }
@@ -217,6 +225,86 @@ h1 {
   to {
     left: -50%;
   }
+}
+
+/* MENU FOR MOBILE */
+
+#menu-mobile {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  z-index: 99;
+  background-color: var(--background-color);
+  border-right: 2px solid var(--secondary-color);
+  animation: slide-right 1s forwards;
+}
+
+#menu-mobile .container {
+  width: calc(100% - 70px);
+  margin: 35px 35px;
+}
+
+#menu-mobile .grid {
+  width: 100%;
+  height: 100%;
+  margin-top: 50px;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, 1fr);
+}
+
+#menu-mobile #exit-btn {
+  color: var(--secondary-color);
+  font-size: 25px;
+  transition-duration: 0.3;
+}
+
+#menu-mobile .grid a {
+  text-decoration: none;
+  font-family: "lusitana";
+  color: var(--secondary-color);
+  font-size: 25px;
+}
+
+#menu-mobile .grid div {
+  margin-bottom: 50px;
+  transition-duration: 0.3;
+}
+
+#menu-mobile #exit-btn:hover {
+  transform: scale(1.01);
+  cursor: pointer;
+}
+
+#menu-mobile .grid div span:hover {
+  border-bottom: 2px solid var(--secondary-color);
+  cursor: pointer;
+}
+
+@keyframes slide-right {
+  from {
+    width: 0;
+  }
+  to {
+    width: 50%;
+  }
+}
+
+@keyframes slide-left {
+  from {
+    width: 50%;
+    display: block;
+  }
+  to {
+    width: 0%;
+    display: none;
+  }
+}
+
+.animate-slide-left {
+  animation: slide-left 1s forwards;
 }
 
 /* FOOTER */
@@ -309,10 +397,49 @@ footer .grid4 {
   align-items: center;
 }
 
+footer .container {
+  background-color: var(--secondary-color);
+}
+
+footer h3 {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+footer .grid2 {
+  font-family: "lusitana";
+  color: var(--background-color);
+}
+
+footer .grid2 .flex {
+  flex-direction: column;
+  align-items: start;
+  margin-top: 15px;
+  margin-left: 45px;
+}
+
+footer .grid2 ul {
+  list-style: none;
+  margin: 0;
+}
+
+footer .grid2 a {
+  text-decoration: none;
+  color: var(--background-color);
+  margin: 0;
+  font-size: 12px;
+}
+
+/* MEDIA QUERIES */
+
 @media screen and (max-width: 1180px) {
   /* NAVBAR */
 
   .navbar i {
+    visibility: visible;
+  }
+
+  .navbar .sub-square {
     visibility: visible;
   }
 
@@ -329,5 +456,60 @@ footer .grid4 {
   .second-nav ul {
     visibility: hidden;
     transition-duration: 0;
+  }
+
+  .main-image {
+    height: calc(100vh - 150px);
+  }
+}
+
+/* TABLET */
+
+@media screen and (max-width: 1020px) {
+  .categories {
+    height: 360px;
+  }
+}
+
+@media screen and (max-width: 825px) {
+  .main-section .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .categories .flex {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .categories .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  .categories {
+    height: 750px;
+  }
+
+  .main-image img {
+    visibility: hidden;
+  }
+
+  .main-image .image-main-mobile {
+    visibility: visible;
+  }
+
+  footer .grid {
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: 100px;
+  }
+}
+
+/* PHONE */
+
+@media screen and (max-width: 625px) {
+  .categories {
+    height: 600px;
   }
 }
