@@ -4,6 +4,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  @font-face {
+    font-family: "marlboro";
+    src: url("Font/marlbo.woff") format("woff2"),
+      /* Modern Browsers */ url("Font/marlbo.woff") format("woff"); /* Older Browsers */
+  }
 }
 
 body {
