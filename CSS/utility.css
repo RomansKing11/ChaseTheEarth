@@ -340,6 +340,10 @@ h1 {
   transition: height width 1s forwards;
 }
 
+.yomama {
+  size: 10000px;
+}
+
 .search-bar input {
   padding: 5px 10px;
   z-index: 999;
