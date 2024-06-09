@@ -17,66 +17,120 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="/CSS/about.css" />
     <link rel="stylesheet" href="/CSS/utility.css" />
+    <script src="script.js" defer></script>
   </head>
   <body>
-    <nav class="navbar">
+     <!-- MENU FOR MOBILE -->
+
+     <div id="menu-mobile">
       <div class="container">
-        <div class="border grid">
-          <div class="main-nav">
-            <ul>
-              <a href="/"><li>Home</li></a>
-              <a href="/"><li>Collections</li></a>
-              <a href="/"><li>Our Goals</li></a>
-              <a href="/"><li>About Us</li></a>
-            </ul>
+        <span id="exit-btn">
+          <!-- <div class="sub-square"></div> -->
+          <!-- ONLY FOR WITHOUT WIFI -->
+          <i class="fa-solid fa-x"></i>
+        </span>
+        <div class="grid">
+          <div>
+            <span>
+              <a href="/index.html">Home</a>
+            </span>
           </div>
-          <div class="main-logo">
-            <a href="/index.html"><h1>ChaseTheEarth</h1></a>
+          <div>
+            <span>
+              <a href="/Collections.html">Collections</a>
+            </span>
           </div>
-          <div class="second-nav">
-            <ul>
-              <a href="/"><li>Search</li></a>
-              <a href="/"><li id="language-changer">English</li></a>
-              <a href="/"><li>Contact Us</li></a>
-              <a href="/"><li>Cart</li></a>
-            </ul>
+          <div>
+            <span>
+              <a href="/">Our Goals</a>
+            </span>
+          </div>
+          <div>
+            <span>
+              <a href="/aboutUs.html">About Us</a>
+            </span>
           </div>
         </div>
       </div>
-      <div class="message-board">
-        <!-- <p class="p1">
-             <span>B</span>
-            <span>e</span>
-            <span>c</span>
-            <span>o</span>
-            <span>m</span>
-            <span>e</span>
-            <span class="dottie">.</span>
-            <span>T</span>
-            <span>h</span>
-            <span>e</span>
-            <span class="dottie">.</span>
-            <span>D</span>
-            <span>i</span>
-            <span>f</span>
-            <span>f</span>
-            <span>e</span>
-            <span>r</span>
-            <span>e</span>
-            <span>n</span>
-            <span>c</span>
-            <span>e</span>
-          </p>
-          
-          </p> -->
-        <p class="p1">Become The Difference</p>
-        <p class="p2">Become The Difference</p>
-        <p class="p3">Become The Difference</p>
-        <p class="p4">Become The Difference</p>
-        <p class="p5">Become The Difference</p>
-        <p class="p6">Become The Difference</p>
-      </div>
-    </nav>
+    </div>
+
+    <!-- MAIN CONTENT -->
+
+    <div class="main-content" id="main-content">
+      <nav class="navbar">
+        <div class="container">
+          <div class="search-bar">
+            <input
+              id="search-bar-box"
+              type="text"
+              placeholder="Search For Something Fabulous!"
+            />
+          </div>
+          <div class="border grid">
+            <div id="menu-btn">
+              <!-- <div class="sub-square"></div> -->
+              <!-- ONLY FOR WITHOUT WIFI -->
+              <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="main-nav">
+              <ul>
+                <a href="/index.html" id="home-link"
+                  ><li><span>Home</span></li></a
+                >
+                <a href="/Collections.html"
+                  ><li><span>Collections</span></li></a
+                >
+                <a href="/"
+                  ><li><span>Our Goals</span></li></a
+                >
+                <a href="/aboutUs.html"
+                  ><li><span>About Us</span></li></a
+                >
+              </ul>
+            </div>
+            <div class="main-logo" id="main-logo-id">
+              <a href="/index.html"><h1>ChaseTheEarth</h1></a>
+            </div>
+            <div class="second-nav">
+              <ul>
+                <a href="#" id="search-word"
+                  ><li><span>Search</span></li></a
+                >
+                <a href="/"
+                  ><li id="language-changer"><span>English</span></li></a
+                >
+                <a href="/"
+                  ><li><span>Contact Us</span></li></a
+                >
+                <a href="/"
+                  ><li><span>Cart</span></li></a
+                >
+              </ul>
+            </div>
+            <div class="right-hand-menu">
+              <div id="search-icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </div>
+              <div class="language-change-icon">
+                <i class="fa-solid fa-language"></i>
+              </div>
+              <div class="cart-icon">
+                <!-- <div class="sub-square"></div> -->
+                <!-- ONLY FOR WITHOUT WIFI -->
+                <i class="fa-solid fa-bag-shopping"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="message-board">
+          <p class="p1">Become The Difference</p>
+          <p class="p2">Become The Difference</p>
+          <p class="p3">Become The Difference</p>
+          <p class="p4">Become The Difference</p>
+          <p class="p5">Become The Difference</p>
+          <p class="p6">Become The Difference</p>
+        </div>
+      </nav>
 
     <!-- BODY -->
 
@@ -141,26 +195,41 @@
 
     <footer>
       <div class="container">
-        <div class="grid">
-          <div class="grid1">
-            <div class="logo-name-footer">
-              <h1>ChaseTheEarth</h1>
-              <h2>Become The Difference</h2>
+        <div class="border">
+          <div class="grid">
+            <div class="grid1">
+              <div class="logo-name-footer">
+                <h1>ChaseTheEarth</h1>
+                <h2>Become The Difference</h2>
+              </div>
             </div>
-          </div>
-          <div class="grid2"></div>
-          <div class="grid3"></div>
-          <div class="grid4">
-            <div class="email">
-              <a href="mailto:help@chasetheearth.com"
-                ><p class="email-in">help@chasetheearth.com</p></a
-              >
+            <div class="grid2">
+              <div class="flex">
+                <h3>Policies</h3>
+                <ul>
+                  <a href="/"><li>Privacy</li></a>
+                  <a href="/"><li>Refund</li></a>
+                  <a href="/"><li>Terms Of Use</li></a>
+                  <a href="/"><li>Terms And Conditions</li></a>
+                </ul>
+              </div>
             </div>
-            <div>
-              <i class="fa-brands fa-instagram"></i>
-              <i class="fa-brands fa-twitter"></i>
-              <i class="fa-brands fa-tiktok"></i>
-              <i class="fa-brands fa-youtube"></i>
+            <div class="grid3">
+              <div class="email">
+                <a href="mailto:help@chasetheearth.com"
+                  ><p class="email-in">help@chasetheearth.com</p></a
+                >
+              </div>
+              <div>
+                <a
+                  href="https://www.instagram.com/chasetheearthofficial/?next=%2Foctagonxperience%2F"
+                  target="_blank"
+                  ><i class="fa-brands fa-instagram"></i
+                ></a>
+                <a href=""><i class="fa-brands fa-tiktok"></i></a>
+                <a href=""><i class="fa-brands fa-youtube"></i></a>
+                <a href=""><i class="fa-brands fa-twitter"></i></a>
+              </div>
             </div>
           </div>
         </div>
@@ -169,7 +238,6 @@
         </div>
       </div>
     </footer>
-
-    <script src="" async defer></script>
+    </div>
   </body>
 </html>

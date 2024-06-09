@@ -12,9 +12,9 @@
   justify-content: center;
   z-index: 9999;
   font-family: "marlboro";
-  animation: fadeOut 1s ease-out forwards;
+  /* animation: fadeOut 1s ease-out forwards;
   animation-iteration-count: 1;
-  animation-delay: 1.2s;
+  animation-delay: 1.2s; */
   pointer-events: none;
 }
 
@@ -37,14 +37,14 @@
   }
 }
 
-@keyframes fadeOut {
+/* @keyframes fadeOut {
   from {
     opacity: 1;
   }
   to {
     opacity: 0;
-  }
-}
+  } 
+}*/
 
 /* MAIN IMAGES SECTION */
 

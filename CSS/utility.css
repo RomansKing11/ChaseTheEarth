@@ -7,9 +7,14 @@
 
   @font-face {
     font-family: "marlboro";
-    src: url("Font/marlbo.woff") format("woff2"),
-      /* Modern Browsers */ url("Font/marlbo.woff") format("woff"); /* Older Browsers */
+    src: url("Font/marlbo.woff") format("woff2");
   }
+}
+
+/* MAIN UTILITY */
+
+head {
+  overflow: hidden;
 }
 
 body {
@@ -69,6 +74,43 @@ h1 {
   background-color: black;
 }
 
+/* SCROLLBAR */
+
+::-webkit-scrollbar {
+  width: 12px; /* Adjust as needed */
+}
+
+::-webkit-scrollbar-track {
+  background: var(--third-color); /* Change to desired color */
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-color); /* Change to desired color */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #109f55;
+}
+
+/* CODE FOR JAVASCRIPT WORKING */
+
+#main-logo-id.hidden {
+  visibility: none;
+  pointer-events: none;
+}
+
+.search-bar.overtop {
+  z-index: 999;
+}
+
+.hidden {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
 /* NAVBAR */
 
 .navbar h1 {
@@ -115,7 +157,19 @@ h1 {
   text-decoration: none;
   color: var(--secondary-color);
   font-family: "lusitana";
-  transition-duration: 1s;
+}
+
+.navbar a span::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background-color: var(--secondary-color);
+}
+
+.navbar a span:hover::after {
+  width: 100%;
+  transition: width 0.4s;
 }
 
 .navbar .second-nav a {
@@ -147,6 +201,7 @@ h1 {
 .navbar i {
   visibility: hidden;
   transition-duration: 0.2s;
+  display: none;
 }
 
 .navbar #menu-btn i:hover {
@@ -287,9 +342,21 @@ h1 {
   cursor: pointer;
 }
 
-#menu-mobile .grid div span:hover {
-  border-bottom: 2px solid var(--secondary-color);
-  cursor: pointer;
+#menu-mobile .grid div span {
+  display: inline-block;
+}
+
+#menu-mobile .grid div span::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background-color: var(--secondary-color);
+}
+
+#menu-mobile .grid div span:hover::after {
+  width: 100%;
+  transition: width 0.4s;
 }
 
 #menu-mobile.open {
@@ -333,10 +400,6 @@ h1 {
   justify-content: center;
 }
 
-.search-bar.overtop {
-  z-index: 999;
-}
-
 .search-bar #search-bar-box {
   width: 0%;
   height: 0%;
@@ -362,11 +425,6 @@ h1 {
 
 .search-bar input:focus {
   outline: 4px solid var(--secondary-color);
-}
-
-#main-logo-id.hidden {
-  display: none;
-  pointer-events: none;
 }
 
 /* FOOTER */
@@ -506,11 +564,22 @@ footer .grid2 a:hover {
 
 /* MEDIA QUERIES */
 
+@media screen and (min-width: 1180px) {
+  .search-bar {
+    width: 30%;
+  }
+}
+
 @media screen and (max-width: 1180px) {
   /* NAVBAR */
 
+  .navbar a {
+    transition-duration: none;
+  }
+
   .navbar i {
     visibility: visible;
+    display: block;
   }
 
   .navbar .sub-square {

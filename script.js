@@ -34,7 +34,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // SEARCH BAR
 document.addEventListener("DOMContentLoaded", function () {
-  const searchBtn = document.getElementById("search-icon");
+  const searchBtn = document.getElementById("search-word");
+  const searchWord = document.getElementById("search-icon");
   const mainLogo = document.getElementById("main-logo-id");
   const searchBar = document.getElementById("search-bar-box");
   const searchMain = document.getElementsByClassName("search-bar")[0];
@@ -48,12 +49,14 @@ document.addEventListener("DOMContentLoaded", function () {
     if (isSearchBarOpen) {
       searchBar.style.width = "0";
       searchBar.style.height = "0";
+      mainLogo.style.visibility = "visible";
       mainLogo.classList.remove("hidden");
       searchMain.classList.remove("overtop");
       searchBar.style.backgroundColor = "var(--background-color)";
     } else {
       searchBar.style.width = "100%";
       searchBar.style.height = "100%";
+      mainLogo.style.visibility = "hidden";
       mainLogo.classList.add("hidden");
       searchMain.classList.add("overtop");
       searchBar.style.backgroundColor = "var(--third-color)";
@@ -64,6 +67,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Event listener for the search button click
   searchBtn.addEventListener("click", function (event) {
+    toggleSearchBar();
+    // Prevent the click event from propagating to the document
+    event.stopPropagation();
+  });
+
+  searchWord.addEventListener("click", function (event) {
     toggleSearchBar();
     // Prevent the click event from propagating to the document
     event.stopPropagation();
@@ -80,4 +89,39 @@ document.addEventListener("DOMContentLoaded", function () {
       toggleSearchBar();
     }
   });
+});
+
+// LOADER
+
+document.addEventListener("DOMContentLoaded", function () {
+  const loader = document.getElementById("loader");
+  const mainContent = document.getElementById("main-content");
+  const homeLink = document.getElementById("home-link");
+
+  if (!sessionStorage.getItem("loaderShown")) {
+    sessionStorage.setItem("loaderShown", "true");
+    showLoader();
+  } else {
+    hideLoader();
+  }
+
+  homeLink.addEventListener("click", (event) => {
+    if (sessionStorage.getItem("loaderShown") === "true") {
+      event.preventDefault();
+      hideLoader();
+    }
+  });
+
+  function showLoader() {
+    loader.classList.remove("hidden");
+    mainContent.classList.add("hidden");
+    setTimeout(hideLoader, 1200); // Simulate loading time
+  }
+
+  function hideLoader() {
+    loader.classList.add("hidden");
+    mainContent.classList.remove("hidden");
+    document.body.style.overflowX = "hidden";
+    document.body.style.overflowY = "auto"; // Allow scrolling after loader
+  }
 });
