@@ -1,0 +1,40 @@
+/* ABOUT PAGE */
+
+.main-section-about {
+  height: 100%;
+  width: 100%;
+  background-color: var(--background-color);
+  color: var(--secondary-color);
+  font-family: "lusitana";
+  margin-top: 30px;
+  text-align: center;
+}
+
+.main-section-about .border {
+  margin: 35px 35px;
+  background-color: var(--background-color);
+}
+
+.main-section-about h1 {
+  font-weight: bold;
+  font-size: 48px;
+}
+
+.main-section-about .flex {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.main-section-about span {
+  margin-top: 80px;
+}
+
+.main-section-about p {
+  align-self: center;
+  font-size: 20px;
+}
+
+.main-section-about .border-about-text {
+  margin: 35px 30px;
+  width: 60%;
+}
