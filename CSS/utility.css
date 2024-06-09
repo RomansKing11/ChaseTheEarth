@@ -19,8 +19,9 @@ html,
 body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Hide horizontal overflow */
+  overflow-x: hidden;
   scrollbar-width: thin;
+  background-color: var(--background-color);
 }
 
 :root {
@@ -28,6 +29,11 @@ body {
   --secondary-color: #0a6838;
   --background-color: #f3f3f3;
   --third-color: #e3e3e3;
+}
+
+.main-content {
+  height: 100%;
+  overflow: visible;
 }
 
 .container {
@@ -67,24 +73,6 @@ h1 {
   background-color: black;
 }
 
-/* SCROLLBAR */
-
-::-webkit-scrollbar {
-  width: 12px; /* Adjust as needed */
-}
-
-::-webkit-scrollbar-track {
-  background: var(--third-color); /* Change to desired color */
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--secondary-color); /* Change to desired color */
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #109f55;
-}
-
 /* CODE FOR JAVASCRIPT WORKING */
 
 #main-logo-id.hidden {
@@ -107,7 +95,7 @@ h1 {
 /* NAVBAR */
 
 .navbar h1 {
-  font-family: "Marlboro Regular";
+  font-family: "Marlboro Regular", "marlboro";
   color: var(--primary-color);
   font-size: 50px;
   justify-self: center;
@@ -219,12 +207,12 @@ h1 {
   font-size: 25px;
   margin: 0;
   padding: 0;
-  cursor: pointer;
-  transition-duration: 0.2s;
 }
 
 .right-hand-menu i {
   margin-left: 15px;
+  transition-duration: 0.2s;
+  cursor: pointer;
 }
 
 /* NAVBAR MESSAGE BOARD */
@@ -425,7 +413,7 @@ h1 {
 footer {
   background-color: var(--secondary-color);
   width: 100%;
-  height: 100px;
+  height: 100%;
   font-family: "lusitana";
   position: relative;
 }
@@ -433,12 +421,13 @@ footer {
 footer .container {
   width: 100%;
   max-width: 100%;
+  overflow: visible;
 }
 
 footer .grid {
   align-items: center;
   justify-content: center;
-  grid-template-columns: 1fr, 2fr, 1fr;
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 100px;
   width: 100%;
 }
@@ -452,7 +441,7 @@ footer .grid1 {
 
 footer i {
   color: var(--background-color);
-  margin-top: -25px;
+  margin-top: 25px;
   display: flex;
   margin: 0 10px;
   cursor: pointer;
@@ -601,13 +590,13 @@ footer .grid2 a:hover {
 
 /* TABLET */
 
-@media screen and (max-width: 1020px) {
+@media screen and (max-width: 1100px) {
   .categories {
-    height: 360px;
+    height: 20%;
   }
 }
 
-@media screen and (max-width: 825px) {
+@media screen and (max-width: 968px) {
   .main-section .grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -625,7 +614,7 @@ footer .grid2 a:hover {
   }
 
   .categories {
-    height: 750px;
+    height: 20%;
   }
 
   .main-image img {
@@ -639,18 +628,30 @@ footer .grid2 a:hover {
   footer .grid {
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: 100%;
-    margin: 15px 0;
+    margin-bottom: 15px;
   }
 }
 
 /* PHONE */
 
-@media screen and (max-width: 625px) {
+@media screen and (max-width: 600px) {
   .categories {
-    height: 600px;
+    height: 20%;
   }
 
   .main-content .language-change-icon {
     display: none;
+  }
+
+  .main-image {
+    height: calc(100vh - 500px);
+  }
+
+  .navbar h1 {
+    font-size: 40px;
+  }
+
+  .main-section-about .border-about-text {
+    width: 100%;
   }
 }

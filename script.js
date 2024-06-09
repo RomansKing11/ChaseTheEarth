@@ -23,13 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
       menuMobile.classList.remove("close");
     }, 1000);
   });
-
-  // if (exitButton) {
-  //   // Check if menuButton exists
-  //   exitButton.addEventListener("click", function () {
-  //     menuMobile.style.display = "none";
-  //   });
-  // }
 });
 
 // SEARCH BAR
@@ -122,6 +115,6 @@ document.addEventListener("DOMContentLoaded", function () {
     loader.classList.add("hidden");
     mainContent.classList.remove("hidden");
     document.body.style.overflowX = "hidden";
-    document.body.style.overflowY = "auto"; // Allow scrolling after loader
+    document.body.style.overflowY = "auto";
   }
 });

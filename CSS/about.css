@@ -1,7 +1,7 @@
 /* ABOUT PAGE */
 
 .main-section-about {
-  height: 500pxpx;
+  height: 100%;
   width: 100%;
   background-color: var(--background-color);
   color: var(--secondary-color);
@@ -11,7 +11,7 @@
 }
 
 .main-section-about .border {
-  padding: 35px 0px;
+  margin: 35px 35px;
   background-color: var(--background-color);
 }
 
@@ -35,6 +35,6 @@
 }
 
 .main-section-about .border-about-text {
-  margin: 20px 60px;
+  margin: 35px 30px;
   width: 60%;
 }
