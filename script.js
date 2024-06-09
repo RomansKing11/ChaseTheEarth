@@ -50,11 +50,13 @@ document.addEventListener("DOMContentLoaded", function () {
       searchBar.style.height = "0";
       mainLogo.classList.remove("hidden");
       searchMain.classList.remove("overtop");
+      searchBar.style.backgroundColor = "var(--background-color)";
     } else {
       searchBar.style.width = "100%";
       searchBar.style.height = "100%";
       mainLogo.classList.add("hidden");
       searchMain.classList.add("overtop");
+      searchBar.style.backgroundColor = "var(--third-color)";
     }
     // Toggle the state of the search bar
     isSearchBarOpen = !isSearchBarOpen;
