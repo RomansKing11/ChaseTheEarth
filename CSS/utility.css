@@ -13,21 +13,12 @@
 
 /* MAIN UTILITY */
 
-head {
-  overflow: hidden;
-}
-
+html,
 body {
   margin: 0;
   padding: 0;
   overflow-x: hidden; /* Hide horizontal overflow */
   scrollbar-width: thin;
-}
-
-html,
-body {
-  height: 100%;
-  margin: 0;
 }
 
 :root {
