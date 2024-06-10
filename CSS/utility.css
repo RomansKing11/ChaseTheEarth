@@ -7,7 +7,7 @@
 }
 
 @font-face {
-  font-family: "marlboro.regular";
+  font-family: "MarlboroRegular";
   src: url("Font/marlboro.regular.ttf");
   font-style: normal;
   font-weight: normal;
@@ -95,7 +95,7 @@ h1 {
 /* NAVBAR */
 
 .navbar h1 {
-  font-family: "Marlboro Regular", "marlboro.regular";
+  font-family: "MarlboroRegular", "lusitana";
   color: var(--primary-color);
   font-size: 50px;
   justify-self: center;
