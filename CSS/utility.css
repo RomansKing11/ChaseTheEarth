@@ -388,10 +388,7 @@ h1 {
   background-color: var(--background-color);
   border: none;
   transition: height width 1s forwards;
-}
-
-.yomama {
-  size: 10000px;
+  caret-color: var(--secondary-color);
 }
 
 .search-bar input {
@@ -434,7 +431,6 @@ footer .grid {
 
 footer .grid1 {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -467,7 +463,7 @@ footer .email a {
 }
 
 footer h1 {
-  font-family: "Marlboro Regular";
+  font-family: "MarlboroRegular", "lusitana";
   color: var(--background-color);
   font-size: 50px;
   justify-self: center;
@@ -478,7 +474,7 @@ footer h1 {
 footer h2 {
   font-family: "great vibes";
   color: var(--background-color);
-  font-size: 25px;
+  font-size: 15px;
   font-weight: normal;
   margin-top: 0;
 }
@@ -486,6 +482,13 @@ footer h2 {
 footer .logo-name-footer {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+footer .logo-shape {
+  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -542,6 +545,17 @@ footer .grid2 a {
 
 footer .grid2 a:hover {
   color: rgb(188, 188, 188);
+}
+
+footer img {
+  max-width: 100%;
+  width: 40px;
+}
+
+footer .logo-shape {
+  display: flex;
+  align-items: center;
+  justify-content: end;
 }
 
 /* MEDIA QUERIES */
@@ -608,6 +622,12 @@ footer .grid2 a:hover {
     justify-content: center;
   }
 
+  .categories .category-box {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 4 /1;
+  }
+
   .categories .grid {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, 1fr);
@@ -626,9 +646,18 @@ footer .grid2 a:hover {
   }
 
   footer .grid {
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 33%);
     grid-template-columns: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 0;
+  }
+
+  footer .border {
+    margin: 0;
+    padding: 35px;
+  }
+
+  footer .grid2 .flex {
+    margin-top: 12px;
   }
 }
 
@@ -649,6 +678,10 @@ footer .grid2 a:hover {
 
   .navbar h1 {
     font-size: 40px;
+  }
+
+  .navbar .grid {
+    grid-template-columns: repeat(3, 33%);
   }
 
   .main-section-about .border-about-text {
