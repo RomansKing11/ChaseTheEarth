@@ -252,3 +252,177 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // YOU MAY LIKE SECTION
+
+document.addEventListener("DOMContentLoaded", () => {
+  const maxProducts = 10; // Maximum number of products to display
+
+  fetch("/json-files/products.json")
+    .then((response) => response.json())
+    .then((productOptions) => {
+      const totalProducts = productOptions.length;
+      const selectedProducts = [];
+
+      // Function to generate random unique indices
+      function getRandomUniqueIndices(maxIndex, count) {
+        const indices = [];
+        while (indices.length < count) {
+          const randomIndex = Math.floor(Math.random() * maxIndex);
+          if (!indices.includes(randomIndex)) {
+            indices.push(randomIndex);
+          }
+        }
+        return indices;
+      }
+
+      // Get random unique indices
+      const randomIndices = getRandomUniqueIndices(
+        totalProducts,
+        Math.min(maxProducts, totalProducts)
+      );
+
+      // Add selected products based on random indices
+      randomIndices.forEach((index) => {
+        const product = productOptions[index];
+        selectedProducts.push(product);
+      });
+
+      // Create elements for selected products
+      selectedProducts.forEach((option) => {
+        const createdDiv = document.createElement("div");
+        createdDiv.className = "youmaylike-product";
+        createdDiv.setAttribute("data-id", option.id); // Set data-id attribute
+
+        const createdImg = document.createElement("img");
+        createdImg.src = option.image;
+
+        const createdH3 = document.createElement("h3");
+        createdH3.textContent = option.name;
+
+        createdDiv.appendChild(createdImg);
+        createdDiv.appendChild(createdH3);
+
+        document.getElementById("flex2").appendChild(createdDiv);
+
+        createdDiv.addEventListener("click", () => {
+          // Retrieve data-id attribute value
+          const productId = createdDiv.getAttribute("data-id");
+
+          // Navigate to product page using the productId
+          window.location.href = `/product-page.html?id=${productId}`;
+        });
+      });
+    })
+    .catch((error) => {
+      console.error("Error fetching or parsing products:", error);
+    });
+});
+
+// ,
+
+//   {
+//     "id": "test",
+//     "name": "test1",
+//     "description": "I mean this painting is amazing, I hope I made it justice on this design. I had to make it a hoodie too, it is just too nice.",
+//     "price": "49,99€",
+//     "image": "images/creationadam hoodie/white back simple.png",
+//     "image2": "images/creationadam hoodie/white front simple.png",
+//     "image3": "images/creationadam hoodie/white back model.png",
+//     "image4": "images/creationadam hoodie/white front detail.png",
+//     "colors": [
+//       {
+//         "name": "White",
+//         "image": "images/creationadam hoodie/white back simple.png",
+//         "image2": "images/creationadam hoodie/white front simple.png",
+//         "image3": "images/creationadam hoodie/white back model.png",
+//         "image4": "images/creationadam hoodie/white front detail.png"
+//       },
+//       {
+//         "name": "Grey",
+//         "image": "images/creationadam hoodie/grey back simple.png",
+//         "image2": "images/creationadam hoodie/grey front simple.png",
+//         "image3": "images/creationadam hoodie/grey back model.png",
+//         "image4": "images/creationadam hoodie/grey front model.png"
+//       }
+//     ]
+//   },
+
+//   {
+//     "id": "test",
+//     "name": "test2",
+//     "description": "I mean this painting is amazing, I hope I made it justice on this design. I had to make it a hoodie too, it is just too nice.",
+//     "price": "49,99€",
+//     "image": "images/creationadam hoodie/white back simple.png",
+//     "image2": "images/creationadam hoodie/white front simple.png",
+//     "image3": "images/creationadam hoodie/white back model.png",
+//     "image4": "images/creationadam hoodie/white front detail.png",
+//     "colors": [
+//       {
+//         "name": "White",
+//         "image": "images/creationadam hoodie/white back simple.png",
+//         "image2": "images/creationadam hoodie/white front simple.png",
+//         "image3": "images/creationadam hoodie/white back model.png",
+//         "image4": "images/creationadam hoodie/white front detail.png"
+//       },
+//       {
+//         "name": "Grey",
+//         "image": "images/creationadam hoodie/grey back simple.png",
+//         "image2": "images/creationadam hoodie/grey front simple.png",
+//         "image3": "images/creationadam hoodie/grey back model.png",
+//         "image4": "images/creationadam hoodie/grey front model.png"
+//       }
+//     ]
+//   },
+
+//   {
+//     "id": "test",
+//     "name": "test3",
+//     "description": "I mean this painting is amazing, I hope I made it justice on this design. I had to make it a hoodie too, it is just too nice.",
+//     "price": "49,99€",
+//     "image": "images/creationadam hoodie/white back simple.png",
+//     "image2": "images/creationadam hoodie/white front simple.png",
+//     "image3": "images/creationadam hoodie/white back model.png",
+//     "image4": "images/creationadam hoodie/white front detail.png",
+//     "colors": [
+//       {
+//         "name": "White",
+//         "image": "images/creationadam hoodie/white back simple.png",
+//         "image2": "images/creationadam hoodie/white front simple.png",
+//         "image3": "images/creationadam hoodie/white back model.png",
+//         "image4": "images/creationadam hoodie/white front detail.png"
+//       },
+//       {
+//         "name": "Grey",
+//         "image": "images/creationadam hoodie/grey back simple.png",
+//         "image2": "images/creationadam hoodie/grey front simple.png",
+//         "image3": "images/creationadam hoodie/grey back model.png",
+//         "image4": "images/creationadam hoodie/grey front model.png"
+//       }
+//     ]
+//   },
+
+//   {
+//     "id": "test",
+//     "name": "test4",
+//     "description": "I mean this painting is amazing, I hope I made it justice on this design. I had to make it a hoodie too, it is just too nice.",
+//     "price": "49,99€",
+//     "image": "images/creationadam hoodie/white back simple.png",
+//     "image2": "images/creationadam hoodie/white front simple.png",
+//     "image3": "images/creationadam hoodie/white back model.png",
+//     "image4": "images/creationadam hoodie/white front detail.png",
+//     "colors": [
+//       {
+//         "name": "White",
+//         "image": "images/creationadam hoodie/white back simple.png",
+//         "image2": "images/creationadam hoodie/white front simple.png",
+//         "image3": "images/creationadam hoodie/white back model.png",
+//         "image4": "images/creationadam hoodie/white front detail.png"
+//       },
+//       {
+//         "name": "Grey",
+//         "image": "images/creationadam hoodie/grey back simple.png",
+//         "image2": "images/creationadam hoodie/grey front simple.png",
+//         "image3": "images/creationadam hoodie/grey back model.png",
+//         "image4": "images/creationadam hoodie/grey front model.png"
+//       }
+//     ]
+//   } FOR -JSON

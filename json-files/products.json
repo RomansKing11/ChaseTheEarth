@@ -32,9 +32,9 @@
     "description": "I mean this painting is amazing, I hope I made it justice on this design.",
     "price": "29,99€",
     "image": "images/creation adam t shirt/creation adam t shirt back simple.png",
-    "image2": "images/unisex-heavy-blend-hoodie-white-back-665640626f460.png",
-    "image3": "images/unisex-heavy-blend-hoodie-white-back-665640626f460.png",
-    "image4": "images/unisex-heavy-blend-hoodie-white-back-665640626f460.png",
+    "image2": "images/creation adam t shirt/creation adam t shirt front simple.png",
+    "image3": "images/creation adam t shirt/mockups t shirt baggy back.png",
+    "image4": "images/creation adam t shirt/creation adam t shirt front model.png",
     "colors": [
       {
         "name": "White",
@@ -51,17 +51,17 @@
     "name": "Creation of Adam Hoodie",
     "description": "I mean this painting is amazing, I hope I made it justice on this design. I had to make it a hoodie too, it is just too nice.",
     "price": "49,99€",
-    "image": "images/creationadam/white back simple.png",
-    "image2": "images/unisex-heavy-blend-hoodie-white-back-665640626f460.png",
-    "image3": "images/unisex-heavy-blend-hoodie-white-back-665640626f460.png",
-    "image4": "images/unisex-heavy-blend-hoodie-white-back-665640626f460.png",
+    "image": "images/creationadam hoodie/white back simple.png",
+    "image2": "images/creationadam hoodie/white front simple.png",
+    "image3": "images/creationadam hoodie/white back model.png",
+    "image4": "images/creationadam hoodie/white front detail.png",
     "colors": [
       {
         "name": "White",
-        "image": "images/creationadam/white back simple.png",
-        "image2": "images/unisex-heavy-blend-hoodie-white-back-665640626f460.png",
-        "image3": "images/unisex-heavy-blend-hoodie-white-back-665640626f460.png",
-        "image4": "images/unisex-heavy-blend-hoodie-white-back-665640626f460.png"
+        "image": "images/creationadam hoodie/white back simple.png",
+        "image2": "images/creationadam hoodie/white front simple.png",
+        "image3": "images/creationadam hoodie/white back model.png",
+        "image4": "images/creationadam hoodie/white front detail.png"
       },
       {
         "name": "Grey",
