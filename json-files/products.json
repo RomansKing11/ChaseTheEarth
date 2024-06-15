@@ -1,0 +1,75 @@
+[
+  {
+    "id": "changemakers t-shirt",
+    "name": "ChangeMakers T-Shirt",
+    "description": "The world needs ChangeMakers, I mean it says it twice on the shirt, so it must be true, right?",
+    "price": "29,99€",
+    "image": "images/curved letters/curvedletters back simple.png",
+    "image2": "images/curved letters/curvedletters front simple.png",
+    "image3": "images/curved letters/curved letters model/curvedletters back model.png",
+    "image4": "images/curved letters/curved letters model/curvedletters front model.png",
+    "colors": [
+      {
+        "name": "White",
+        "image": "images/curved letters/curvedletters back simple.png",
+        "image2": "images/curved letters/curvedletters front simple.png",
+        "image3": "images/curved letters/curved letters model/curvedletters back model.png",
+        "image4": "images/curved letters/curved letters model/curvedletters front model.png"
+      },
+      {
+        "name": "Double Cream",
+        "image": "images/curved letters/curvedletters back simple double cream.png",
+        "image2": "images/curved letters/curvedletters front simple double cream.png",
+        "image3": "images/curved letters/curved letters model/curvedletters back model double cream.png",
+        "image4": "images/curved letters/curved letters model/curvedletters front model double cream.png"
+      }
+    ]
+  },
+
+  {
+    "id": "creation-adam t-shirt",
+    "name": "Creation of Adam T-Shirt",
+    "description": "I mean this painting is amazing, I hope I made it justice on this design.",
+    "price": "29,99€",
+    "image": "images/creation adam t shirt/creation adam t shirt back simple.png",
+    "image2": "images/unisex-heavy-blend-hoodie-white-back-665640626f460.png",
+    "image3": "images/unisex-heavy-blend-hoodie-white-back-665640626f460.png",
+    "image4": "images/unisex-heavy-blend-hoodie-white-back-665640626f460.png",
+    "colors": [
+      {
+        "name": "White",
+        "image": "images/creation adam t shirt/creation adam t shirt back simple.png",
+        "image2": "images/creation adam t shirt/creation adam t shirt front simple.png",
+        "image3": "images/creation adam t shirt/mockups t shirt baggy back.png",
+        "image4": "images/creation adam t shirt/creation adam t shirt front model.png"
+      }
+    ]
+  },
+
+  {
+    "id": "creation-adam hoodie",
+    "name": "Creation of Adam Hoodie",
+    "description": "I mean this painting is amazing, I hope I made it justice on this design. I had to make it a hoodie too, it is just too nice.",
+    "price": "49,99€",
+    "image": "images/creationadam/white back simple.png",
+    "image2": "images/unisex-heavy-blend-hoodie-white-back-665640626f460.png",
+    "image3": "images/unisex-heavy-blend-hoodie-white-back-665640626f460.png",
+    "image4": "images/unisex-heavy-blend-hoodie-white-back-665640626f460.png",
+    "colors": [
+      {
+        "name": "White",
+        "image": "images/creationadam/white back simple.png",
+        "image2": "images/unisex-heavy-blend-hoodie-white-back-665640626f460.png",
+        "image3": "images/unisex-heavy-blend-hoodie-white-back-665640626f460.png",
+        "image4": "images/unisex-heavy-blend-hoodie-white-back-665640626f460.png"
+      },
+      {
+        "name": "Grey",
+        "image": "images/creationadam hoodie/grey back simple.png",
+        "image2": "images/creationadam hoodie/grey front simple.png",
+        "image3": "images/creationadam hoodie/grey back model.png",
+        "image4": "images/creationadam hoodie/grey front model.png"
+      }
+    ]
+  }
+]

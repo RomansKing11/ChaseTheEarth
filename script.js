@@ -118,3 +118,137 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.style.overflowY = "auto";
   }
 });
+
+// FOR DYNAMIC PRODUCTS
+
+// FOR PRODUCT-BOX
+
+document.addEventListener("DOMContentLoaded", () => {
+  const productBoxes = document.querySelectorAll(".product-box");
+
+  productBoxes.forEach((box) => {
+    box.addEventListener("click", () => {
+      const productId = box.getAttribute("data-id");
+      if (productId) {
+        window.location.href = `product-page.html?id=${productId}`;
+      } else {
+        console.error("Product ID not found");
+      }
+    });
+  });
+});
+
+// FOR PRODUCT PAGE
+
+// TO CHANGE IMAGE WITH COLOR ETC
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Fetch the product data
+  fetch("/json-files/products.json")
+    .then((response) => response.json())
+    .then((products) => {
+      // Get the product ID from the URL
+      const params = new URLSearchParams(window.location.search);
+      const productId = params.get("id");
+
+      if (productId) {
+        // Find the product with the matching ID
+        const product = products.find((p) => p.id === productId); //p => p.id === productId is an arrow function used as the testing function inside .find(). p represents each product object in the products array as the .find() method iterates through the array.
+        if (product) {
+          // Update the HTML elements with the product data
+          document.getElementById("product-image").src = product.image;
+          document.getElementById("product-image2").src = product.image2;
+          document.getElementById("product-image3").src = product.image3;
+          document.getElementById("product-image4").src = product.image4;
+          document.getElementById("product-name").textContent = product.name;
+          document.getElementById("product-description").textContent =
+            product.description;
+          document.getElementById("product-price").textContent = product.price;
+
+          const colorOptionsContainer =
+            document.querySelector("#color-options");
+          colorOptionsContainer.innerHTML = ""; // Clear any existing color options
+
+          product.colors.forEach((color) => {
+            const colorDiv = document.createElement("div");
+            colorDiv.className = "color-option";
+
+            const colorImage = document.createElement("img");
+            colorImage.src = color.image;
+            colorImage.alt = color.name;
+            colorImage.title = color.name; // For accessibility
+
+            colorDiv.appendChild(colorImage);
+            colorOptionsContainer.appendChild(colorDiv);
+
+            // Add click event listener to change main product image
+            colorDiv.addEventListener("click", () => {
+              document.getElementById("product-image").src = color.image;
+              document.getElementById("product-image2").src = color.image2;
+              document.getElementById("product-image3").src = color.image3;
+              document.getElementById("product-image4").src = color.image4;
+            });
+          });
+        } else {
+          console.error("Product not found");
+        }
+      } else {
+        console.error("No product ID in URL");
+      }
+    })
+    .catch((error) => console.error("Error fetching product data:", error));
+});
+
+// FOR SIZE CHART
+
+document.addEventListener("DOMContentLoaded", () => {
+  let selectedSize = null;
+
+  document.querySelectorAll(".size-option").forEach((option) => {
+    option.addEventListener("click", () => {
+      // Remove the selected class from all size options
+      document
+        .querySelectorAll(".size-option")
+        .forEach((opt) => opt.classList.remove("selected"));
+
+      // Add the selected class to the clicked size option
+      option.classList.add("selected");
+
+      // Save the selected size
+      selectedSize = option.getAttribute("data-size");
+
+      // Log the selected size (for debugging)
+      console.log("Selected size:", selectedSize);
+
+      // You can save the selected size to localStorage or a global variable for later use
+      localStorage.setItem("selectedSize", selectedSize);
+    });
+  });
+});
+
+// POPUP FOR SIZE CHART
+
+document.addEventListener("DOMContentLoaded", () => {
+  const popup = document.getElementById("popup");
+  const sizeChartDiagram = document.getElementById("size-chart-diagram");
+  const closeBtn = document.querySelector(".close-btn");
+
+  // Show the popup when the button is clicked
+  sizeChartDiagram.addEventListener("click", () => {
+    popup.style.display = "block";
+  });
+
+  // Close the popup when the close button is clicked
+  closeBtn.addEventListener("click", () => {
+    popup.style.display = "none";
+  });
+
+  // Close the popup when clicking outside the popup content
+  window.addEventListener("click", (event) => {
+    if (event.target === popup) {
+      popup.style.display = "none";
+    }
+  });
+});
+
+// YOU MAY LIKE SECTION

@@ -244,6 +244,7 @@ h1 {
   animation-duration: 30s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  cursor: default;
 }
 
 .message-board .p1 {
@@ -412,7 +413,8 @@ footer {
   width: 100%;
   height: 100%;
   font-family: "lusitana";
-  position: relative;
+  position: static;
+  z-index: 0;
 }
 
 footer .container {
