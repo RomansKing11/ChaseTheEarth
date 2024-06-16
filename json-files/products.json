@@ -3,7 +3,7 @@
     "id": "changemakers t-shirt",
     "name": "ChangeMakers T-Shirt",
     "description": "The world needs ChangeMakers, I mean it says it twice on the shirt, so it must be true, right?",
-    "price": "29,99€",
+    "price": "19,99€",
     "image": "images/curved letters/curvedletters back simple.png",
     "image2": "images/curved letters/curvedletters front simple.png",
     "image3": "images/curved letters/curved letters model/curvedletters back model.png",
@@ -74,109 +74,21 @@
   },
 
   {
-    "id": "test",
-    "name": "test1",
-    "description": "I mean this painting is amazing, I hope I made it justice on this design. I had to make it a hoodie too, it is just too nice.",
-    "price": "49,99€",
-    "image": "images/creationadam hoodie/white back simple.png",
-    "image2": "images/creationadam hoodie/white front simple.png",
-    "image3": "images/creationadam hoodie/white back model.png",
-    "image4": "images/creationadam hoodie/white front detail.png",
+    "id": "momentary t-shirt",
+    "name": "Baby Angel T-Shirt",
+    "description": "Dreams can always be accomplished, as long as action comes after it",
+    "price": "19,99€",
+    "image": "images/momentary design t shirt/truenavy back simple.png",
+    "image2": "images/momentary design t shirt/truenavy front simple.png",
+    "image3": "images/momentary design t shirt/truenavy back model.png",
+    "image4": "images/momentary design t shirt/truenavy front model.png",
     "colors": [
       {
-        "name": "White",
-        "image": "images/creationadam hoodie/white back simple.png",
-        "image2": "images/creationadam hoodie/white front simple.png",
-        "image3": "images/creationadam hoodie/white back model.png",
-        "image4": "images/creationadam hoodie/white front detail.png"
-      },
-      {
-        "name": "Grey",
-        "image": "images/creationadam hoodie/grey back simple.png",
-        "image2": "images/creationadam hoodie/grey front simple.png",
-        "image3": "images/creationadam hoodie/grey back model.png",
-        "image4": "images/creationadam hoodie/grey front model.png"
-      }
-    ]
-  },
-
-  {
-    "id": "test",
-    "name": "test2",
-    "description": "I mean this painting is amazing, I hope I made it justice on this design. I had to make it a hoodie too, it is just too nice.",
-    "price": "49,99€",
-    "image": "images/creationadam hoodie/white back simple.png",
-    "image2": "images/creationadam hoodie/white front simple.png",
-    "image3": "images/creationadam hoodie/white back model.png",
-    "image4": "images/creationadam hoodie/white front detail.png",
-    "colors": [
-      {
-        "name": "White",
-        "image": "images/creationadam hoodie/white back simple.png",
-        "image2": "images/creationadam hoodie/white front simple.png",
-        "image3": "images/creationadam hoodie/white back model.png",
-        "image4": "images/creationadam hoodie/white front detail.png"
-      },
-      {
-        "name": "Grey",
-        "image": "images/creationadam hoodie/grey back simple.png",
-        "image2": "images/creationadam hoodie/grey front simple.png",
-        "image3": "images/creationadam hoodie/grey back model.png",
-        "image4": "images/creationadam hoodie/grey front model.png"
-      }
-    ]
-  },
-
-  {
-    "id": "test",
-    "name": "test3",
-    "description": "I mean this painting is amazing, I hope I made it justice on this design. I had to make it a hoodie too, it is just too nice.",
-    "price": "49,99€",
-    "image": "images/creationadam hoodie/white back simple.png",
-    "image2": "images/creationadam hoodie/white front simple.png",
-    "image3": "images/creationadam hoodie/white back model.png",
-    "image4": "images/creationadam hoodie/white front detail.png",
-    "colors": [
-      {
-        "name": "White",
-        "image": "images/creationadam hoodie/white back simple.png",
-        "image2": "images/creationadam hoodie/white front simple.png",
-        "image3": "images/creationadam hoodie/white back model.png",
-        "image4": "images/creationadam hoodie/white front detail.png"
-      },
-      {
-        "name": "Grey",
-        "image": "images/creationadam hoodie/grey back simple.png",
-        "image2": "images/creationadam hoodie/grey front simple.png",
-        "image3": "images/creationadam hoodie/grey back model.png",
-        "image4": "images/creationadam hoodie/grey front model.png"
-      }
-    ]
-  },
-
-  {
-    "id": "test",
-    "name": "test4",
-    "description": "I mean this painting is amazing, I hope I made it justice on this design. I had to make it a hoodie too, it is just too nice.",
-    "price": "49,99€",
-    "image": "images/creationadam hoodie/white back simple.png",
-    "image2": "images/creationadam hoodie/white front simple.png",
-    "image3": "images/creationadam hoodie/white back model.png",
-    "image4": "images/creationadam hoodie/white front detail.png",
-    "colors": [
-      {
-        "name": "White",
-        "image": "images/creationadam hoodie/white back simple.png",
-        "image2": "images/creationadam hoodie/white front simple.png",
-        "image3": "images/creationadam hoodie/white back model.png",
-        "image4": "images/creationadam hoodie/white front detail.png"
-      },
-      {
-        "name": "Grey",
-        "image": "images/creationadam hoodie/grey back simple.png",
-        "image2": "images/creationadam hoodie/grey front simple.png",
-        "image3": "images/creationadam hoodie/grey back model.png",
-        "image4": "images/creationadam hoodie/grey front model.png"
+        "name": "True Navy",
+        "image": "images/momentary design t shirt/truenavy back simple.png",
+        "image2": "images/momentary design t shirt/truenavy front simple.png",
+        "image3": "images/momentary design t shirt/truenavy back model.png",
+        "image4": "images/momentary design t shirt/truenavy front model.png"
       }
     ]
   }
