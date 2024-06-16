@@ -185,10 +185,14 @@
                 <div class="size-chart">
                   <p class="product-inf-title">Sizes</p>
                   <div id="size-outside-box">
-                    <div class="size-option" data-size="S">S</div>
-                    <div class="size-option" data-size="M">M</div>
-                    <div class="size-option" data-size="XL">XL</div>
-                    <div class="size-option" data-size="XXL">XXL</div>
+                    <div class="size-option unselectable" data-size="S">S</div>
+                    <div class="size-option unselectable" data-size="M">M</div>
+                    <div class="size-option unselectable" data-size="XL">
+                      XL
+                    </div>
+                    <div class="size-option unselectable" data-size="XXL">
+                      XXL
+                    </div>
                   </div>
                   <p id="size-chart-diagram">Size Chart</p>
                   <!-- The popup -->
@@ -211,8 +215,10 @@
               </div>
               <div class="buy-buttons">
                 <div class="flex">
-                  <div class="add-to-cart-button flex">Add to Cart</div>
-                  <div class="paypal-btn flex">Paypal</div>
+                  <div class="add-to-cart-button unselectable flex">
+                    Add to Cart
+                  </div>
+                  <div class="paypal-btn unselectable flex">Paypal</div>
                 </div>
               </div>
             </div>
@@ -220,16 +226,18 @@
         </section>
       </section>
       <section class="you-may-like">
-        <div class="container border">
-          <div class="flex">
-            <!-- <div id="scrollLeft" class="scroll-arrow left">&lt;</div> -->
-            <h2>You May Like</h2>
-            <div class="products-youmaylike" id="productYouMayLike">
-              <div id="flex2"></div>
+        <div class="container">
+          <div class="border">
+            <div class="flex">
+              <h2>You May Like</h2>
+              <div class="products-youmaylike" id="productYouMayLike">
+                <div id="grid-youmaylike" class="scroll-snap-inline"></div>
+              </div>
             </div>
-            <!-- <div id="scrollRight" class="scroll-arrow right">&gt;</div> -->
           </div>
         </div>
+        <div class="scroll-arrow left unselectable" id="scrollLeft">&lt;</div>
+        <div class="scroll-arrow right unselectable" id="scrollRight">&gt;</div>
       </section>
 
       <!-- FOOTER -->

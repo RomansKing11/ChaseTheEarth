@@ -252,14 +252,14 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // YOU MAY LIKE SECTION
-
 document.addEventListener("DOMContentLoaded", () => {
-  const maxProducts = 10; // Maximum number of products to display
-
   fetch("/json-files/products.json")
     .then((response) => response.json())
     .then((productOptions) => {
       const totalProducts = productOptions.length;
+      const MAX_LIMIT = 8; // Maximum number of products to display
+
+      // Select products randomly
       const selectedProducts = [];
 
       // Function to generate random unique indices
@@ -277,7 +277,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Get random unique indices
       const randomIndices = getRandomUniqueIndices(
         totalProducts,
-        Math.min(maxProducts, totalProducts)
+        Math.min(MAX_LIMIT, totalProducts)
       );
 
       // Add selected products based on random indices
@@ -294,14 +294,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const createdImg = document.createElement("img");
         createdImg.src = option.image;
+        createdImg.className = "unselectable";
 
         const createdH3 = document.createElement("h3");
         createdH3.textContent = option.name;
+        createdH3.className = "unselectable";
 
         createdDiv.appendChild(createdImg);
         createdDiv.appendChild(createdH3);
 
-        document.getElementById("flex2").appendChild(createdDiv);
+        document.getElementById("grid-youmaylike").appendChild(createdDiv);
 
         createdDiv.addEventListener("click", () => {
           // Retrieve data-id attribute value
@@ -315,6 +317,20 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch((error) => {
       console.error("Error fetching or parsing products:", error);
     });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById("productYouMayLike");
+  const scrollLeft = document.getElementById("scrollLeft");
+  const scrollRight = document.getElementById("scrollRight");
+
+  scrollLeft.addEventListener("click", () => {
+    container.scrollLeft -= 190; // Adjust scroll amount as needed
+  });
+
+  scrollRight.addEventListener("click", () => {
+    container.scrollLeft += 190; // Adjust scroll amount as needed
+  });
 });
 
 // ,
