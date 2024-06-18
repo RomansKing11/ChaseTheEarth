@@ -25,6 +25,16 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// MAIN TITLE TO HOME PAGE
+
+document.addEventListener("DOMContentLoaded", function () {
+  const homeButton = document.getElementById("main-logo-id");
+
+  homeButton.addEventListener("click", () => {
+    console.log("click home");
+  });
+});
+
 // SEARCH BAR
 document.addEventListener("DOMContentLoaded", function () {
   const searchBtn = document.getElementById("search-word");
@@ -33,10 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const searchBar = document.getElementById("search-bar-box");
   const searchMain = document.getElementsByClassName("search-bar")[0];
   let isSearchBarOpen = false;
-
-  searchMain.addEventListener("click", () => {
-    console.log("click");
-  });
 
   function toggleSearchBar() {
     if (isSearchBarOpen) {
@@ -442,3 +448,50 @@ document.addEventListener("DOMContentLoaded", () => {
 //       }
 //     ]
 //   } FOR -JSON
+
+// FOR LITTLE DOTS UNDER PRODUCT IMAGE
+
+document.addEventListener("DOMContentLoaded", function () {
+  const carousel = document.getElementById("carousel");
+  const carouselNav = document.getElementById("carouselNav");
+  const images = Array.from(document.querySelectorAll(".image-product"));
+  let currentIndex = 0;
+
+  // Create dot buttons dynamically based on the number of images
+  images.forEach((image, index) => {
+    const dot = document.createElement("button");
+    dot.classList.add("carousel-dot");
+    dot.dataset.index = index;
+    carouselNav.appendChild(dot);
+  });
+
+  // Initialize first dot as active
+  document
+    .querySelector('.carousel-dot[data-index="0"]')
+    .classList.add("active");
+
+  // Event listener for dots
+  carouselNav.addEventListener("click", function (event) {
+    if (event.target.classList.contains("carousel-dot")) {
+      const targetIndex = Number(event.target.dataset.index);
+      currentIndex = targetIndex;
+      updateCarousel();
+    }
+  });
+
+  // Function to update carousel
+  function updateCarousel() {
+    const carouselWidth = carousel.clientWidth;
+    const scrollPosition = currentIndex * carouselWidth;
+    carousel.scrollTo({
+      left: scrollPosition,
+      behavior: "smooth",
+    });
+
+    // Update active dot
+    document.querySelector(".carousel-dot.active").classList.remove("active");
+    document
+      .querySelector(`.carousel-dot[data-index="${currentIndex}"]`)
+      .classList.add("active");
+  }
+});
