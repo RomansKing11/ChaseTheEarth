@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// FOR PRODUCT PAGE
+// FOR PRODUCT PAGE !!! (!!! means header)
 
 // TO CHANGE IMAGE WITH COLOR ETC
 
@@ -494,4 +494,61 @@ document.addEventListener("DOMContentLoaded", function () {
       .querySelector(`.carousel-dot[data-index="${currentIndex}"]`)
       .classList.add("active");
   }
+});
+
+// FOR ZOOM IN WHEN CLICK ON IMAGE FEATURE PRODUCT PAGE
+
+// script.js
+
+document.addEventListener("DOMContentLoaded", function () {
+  const images = document.querySelectorAll(".clickable-image");
+  const popup = document.getElementById("image-popup");
+  const popupImage = document.getElementById("popup-image");
+  const closeBtn = document.querySelector(".close-btn-image");
+
+  images.forEach((image) => {
+    image.addEventListener("click", function () {
+      popup.style.display = "block";
+      popupImage.src = this.src;
+      popupImage.style.transform = `scale(1)`;
+    });
+  });
+
+  closeBtn.addEventListener("click", function () {
+    popup.style.display = "none";
+  });
+
+  let isDragging = false;
+  let startX, startY;
+
+  popupImage.addEventListener("mousedown", function (e) {
+    isDragging = true;
+    startX = e.clientX - popupImage.offsetLeft;
+    startY = e.clientY - popupImage.offsetTop;
+    popupImage.style.cursor = "grab";
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (isDragging) {
+      popupImage.style.left = `${e.clientX - startX}px`;
+      popupImage.style.top = `${e.clientY - startY}px`;
+    }
+  });
+
+  document.addEventListener("mouseup", function () {
+    isDragging = false;
+    popupImage.style.cursor = "grab";
+  });
+
+  let zoomLevel = 1;
+
+  popupImage.addEventListener("wheel", function (e) {
+    e.preventDefault();
+    if (e.deltaY < 0) {
+      zoomLevel = Math.min(zoomLevel + 0.1, 4);
+    } else {
+      zoomLevel = Math.max(zoomLevel - 0.1, 0.5);
+    }
+    popupImage.style.transform = `scale(${zoomLevel})`;
+  });
 });

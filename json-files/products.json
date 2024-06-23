@@ -78,17 +78,25 @@
     "name": "Sad Angel T-Shirt",
     "description": "Dreams can always be accomplished, as long as action comes after it",
     "price": "29,99€",
-    "image": "images/baby angel design t-shirt/baby angel back simple.png",
-    "image2": "images/baby angel design t-shirt/baby angel front simple.png",
-    "image3": "images/baby angel design t-shirt/baby angel back model.png",
-    "image4": "images/baby angel design t-shirt/baby angel front model.png",
+    "image": "images/baby angel design t-shirt/baby angel navy front simple-min.png",
+    "image2": "images/baby angel design t-shirt/baby angel navy back simple-min.png",
+    "image3": "images/baby angel design t-shirt/baby angel navy back model-min.png",
+    "image4": "images/baby angel design t-shirt/baby angel navy front model-min.png",
     "colors": [
       {
         "name": "True Navy",
-        "image": "images/baby angel design t-shirt/baby angel back simple.png",
-        "image2": "images/baby angel design t-shirt/baby angel front simple.png",
-        "image3": "images/baby angel design t-shirt/baby angel back model.png",
-        "image4": "images/baby angel design t-shirt/baby angel front model.png"
+        "image": "images/baby angel design t-shirt/baby angel navy front simple-min.png",
+        "image2": "images/baby angel design t-shirt/baby angel navy back simple-min.png",
+        "image3": "images/baby angel design t-shirt/baby angel navy back model-min.png",
+        "image4": "images/baby angel design t-shirt/baby angel navy front model-min.png"
+      },
+
+      {
+        "name": "Black",
+        "image": "images/baby angel design t-shirt/baby angel black front simple-min.png",
+        "image2": "images/baby angel design t-shirt/baby angel black back simple-min.png",
+        "image3": "images/baby angel design t-shirt/baby angel black front model-min.png",
+        "image4": "images/baby angel design t-shirt/baby angel black back model-min.png"
       }
     ]
   }

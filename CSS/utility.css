@@ -236,8 +236,8 @@ h1 {
   overflow: hidden;
   font-family: "great vibes";
 
-  white-space: nowrap; /* Prevents the text from breaking into a new line */
-  overflow: hidden; /* Ensures that the overflowing text doesn't cause a horizontal scrollbar */
+  white-space: nowrap;
+  overflow: hidden;
   text-overflow: clip;
 }
 
@@ -250,10 +250,7 @@ h1 {
   left: calc(250px * 6);
   top: 62px;
   font-size: 22px;
-  animation: right-left;
-  animation-duration: 30s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
+  animation: right-left 30s linear infinite;
   cursor: default;
 }
 
