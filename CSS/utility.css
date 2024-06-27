@@ -42,6 +42,10 @@ body {
   -moz-user-select: none;
 }
 
+.invisible {
+  visibility: hidden;
+}
+
 .scroll-snap-inline {
   scroll-snap-type: inline mandatory;
 }
@@ -102,6 +106,10 @@ h1 {
   display: block;
 }
 
+.underscore {
+  border-bottom: 1px solid var(--background-color);
+}
+
 /* NAVBAR */
 
 .navbar h1 {
@@ -110,6 +118,17 @@ h1 {
   font-size: 50px;
   justify-self: center;
   font-weight: normal;
+  margin: 0;
+  top: 15%;
+  font-size: 50px;
+  /* margin-top: -5px; */
+}
+
+.navbar h4 {
+  font-family: "Great Vibes";
+  margin: 0;
+  font-size: 20px;
+  margin-top: -5px;
 }
 
 .navbar {
@@ -128,6 +147,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .navbar ul {
@@ -232,9 +252,12 @@ h1 {
   background-color: var(--secondary-color);
   color: white;
 
-  display: relative;
   overflow: hidden;
   font-family: "great vibes";
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 
   white-space: nowrap;
   overflow: hidden;
@@ -245,15 +268,18 @@ h1 {
   color: var(--secondary-color);
 }
 
-.message-board p {
-  position: absolute;
-  left: calc(250px * 6);
-  top: 62px;
-  font-size: 22px;
-  animation: right-left 30s linear infinite;
-  cursor: default;
+.message-board a {
+  color: var(--background-color);
 }
 
+/* .message-board p {
+   left: calc(250px * 6); 
+
+   animation: right-left 30s linear infinite; 
+  cursor: default;
+  color: var(--background-color);
+}*/
+/*  
 .message-board .p1 {
   animation-delay: calc(30s / 6 * (6 - 1) * -1);
 }
@@ -266,18 +292,18 @@ h1 {
 .message-board .p4 {
   animation-delay: calc(30s / 6 * (6 - 4) * -1);
 }
-.message-board .p6 {
+.message-board .p5 {
   animation-delay: calc(30s / 6 * (6 - 5) * -1);
 }
-.message-board .p7 {
+.message-board .p6 {
   animation-delay: calc(30s / 6 * (6 - 6) * -1);
-}
+} */
 
 @keyframes right-left {
   from {
   }
   to {
-    left: -50%;
+    left: -100%;
   }
 }
 
@@ -578,7 +604,11 @@ footer .logo-shape {
 @media screen and (max-width: 1180px) {
   /* NAVBAR */
 
-  .navbar a {
+  .navbar .main-nav a {
+    transition-duration: none;
+  }
+
+  .navbar .right-hand-menu a {
     transition-duration: none;
   }
 
