@@ -103,18 +103,88 @@ window.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   const productClicked = document.getElementsByClassName("product-box");
 
-  // TAKE TO PRODUCT PAGE
-  document.addEventListener("DOMContentLoaded", function () {
-    const productClicked = document.getElementsByClassName("product-box");
+  for (let i = 0; i < productClicked.length; i++) {
+    productClicked[i].addEventListener("click", (e) => {
+      let target = e.target;
+      let productId = null;
 
-    for (let i = 0; i < productClicked.length; i++) {
-      productClicked[i].addEventListener("click", (e) => {
-        let productId = productClicked.getAttribute("data-id");
+      // Search for the data-id attribute on the clicked element and its parent elements
+      while (target && !productId) {
+        productId = target.getAttribute("data-id");
+        target = target.parentElement;
+      }
 
-        console.log(productId);
-        // window.location.href = "/product-page.html";
-      });
-    }
-  });
+      // console.log(productId);
+      window.location.href = `/product-page.html?id=${productId}`;
+    });
+  }
 });
+
 // FOR DYNAMIC PRODUCTS
+document.addEventListener("DOMContentLoaded", function () {
+  const productName = document.getElementById("product-name");
+  const productPrice = document.getElementById("product-price");
+  const productDescription = document.getElementById("product-description");
+  const productImageVariant = document.getElementsByClassName("image-variant");
+  const productMainImage = document.getElementById("main-product-image");
+  const productFlexColorOptions = document.getElementById(
+    "flex-for-color-options"
+  );
+
+  fetch("json-files/products.json")
+    .then((response) => response.json())
+    .then((data) => {
+      const productId = new URLSearchParams(window.location.search).get("id");
+      const product = data.find((product) => product.id === productId);
+
+      if (product) {
+        const productNameH1 = document.createElement("h1");
+        productNameH1.textContent = product.name;
+        productName.appendChild(productNameH1);
+
+        const productPriceH4 = document.createElement("h4");
+        productPriceH4.textContent = product.price;
+        productPrice.appendChild(productPriceH4);
+
+        const productDescriptionP = document.createElement("p");
+        productDescriptionP.textContent = product.description;
+        productDescription.appendChild(productDescriptionP);
+
+        // Count the number of color options
+        const numberOfColorOptions = product.colors.length;
+        console.log("Number of color options:", numberOfColorOptions);
+
+        // Get the first image of the color
+        const firstColorImage = product.colors[0].image;
+        console.log("First color image:", firstColorImage);
+
+        // Loop through the color options and create the image tags
+        for (let i = 0; i < numberOfColorOptions; i++) {
+          const colorOptionDiv = document.createElement("div");
+          colorOptionDiv.classList.add("color-options");
+          colorOptionDiv.id = `color-option${i + 1}`;
+
+          const imageTag = document.createElement("img");
+          imageTag.src = product.colors[i].image;
+
+          colorOptionDiv.appendChild(imageTag);
+          productFlexColorOptions.appendChild(colorOptionDiv);
+        }
+
+        // Append the color options div to the color options section
+        const colorOptionsSection = document.querySelector(
+          ".color-options-section"
+        );
+        colorOptionsSection.appendChild(colorOptionsDiv);
+
+        // Set the first color image as the main product image
+        productMainImage.src = firstColorImage;
+      } else {
+        // Handle the case when the product is not found
+        console.log("Product not found");
+      }
+    })
+    .catch((error) => {
+      console.error("Error fetching products:", error);
+    });
+});

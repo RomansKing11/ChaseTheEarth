@@ -110,10 +110,11 @@
   color: var(--secondary-color);
   margin-top: 5px;
   font-family: "lusitana";
+  font-weight: lighter;
 }
 
 .product-description-section .product-description {
-  font-size: 15px;
+  font-size: 20px;
   color: var(--secondary-color);
   margin-top: 20px;
   font-family: "lusitana";
