@@ -1,0 +1,214 @@
+
+,
+
+  {
+    "id": "test",
+    "name": "test1",
+    "description": "I mean this painting is amazing, I hope I made it justice on this design. I had to make it a hoodie too, it is just too nice.",
+    "price": "49,99€",
+    "image": "images/creationadam hoodie/white back simple.png",
+    "image2": "images/creationadam hoodie/white front simple.png",
+    "image3": "images/creationadam hoodie/white back model.png",
+    "image4": "images/creationadam hoodie/white front detail.png",
+    "colors": [
+      {
+        "name": "White",
+        "image": "images/creationadam hoodie/white back simple.png",
+        "image2": "images/creationadam hoodie/white front simple.png",
+        "image3": "images/creationadam hoodie/white back model.png",
+        "image4": "images/creationadam hoodie/white front detail.png"
+      },
+      {
+        "name": "Grey",
+        "image": "images/creationadam hoodie/grey back simple.png",
+        "image2": "images/creationadam hoodie/grey front simple.png",
+        "image3": "images/creationadam hoodie/grey back model.png",
+        "image4": "images/creationadam hoodie/grey front model.png"
+      }
+    ]
+  },
+
+  {
+    "id": "test",
+    "name": "test2",
+    "description": "I mean this painting is amazing, I hope I made it justice on this design. I had to make it a hoodie too, it is just too nice.",
+    "price": "49,99€",
+    "image": "images/creationadam hoodie/white back simple.png",
+    "image2": "images/creationadam hoodie/white front simple.png",
+    "image3": "images/creationadam hoodie/white back model.png",
+    "image4": "images/creationadam hoodie/white front detail.png",
+    "colors": [
+      {
+        "name": "White",
+        "image": "images/creationadam hoodie/white back simple.png",
+        "image2": "images/creationadam hoodie/white front simple.png",
+        "image3": "images/creationadam hoodie/white back model.png",
+        "image4": "images/creationadam hoodie/white front detail.png"
+      },
+      {
+        "name": "Grey",
+        "image": "images/creationadam hoodie/grey back simple.png",
+        "image2": "images/creationadam hoodie/grey front simple.png",
+        "image3": "images/creationadam hoodie/grey back model.png",
+        "image4": "images/creationadam hoodie/grey front model.png"
+      }
+    ]
+  },
+
+  {
+    "id": "test",
+    "name": "test3",
+    "description": "I mean this painting is amazing, I hope I made it justice on this design. I had to make it a hoodie too, it is just too nice.",
+    "price": "49,99€",
+    "image": "images/creationadam hoodie/white back simple.png",
+    "image2": "images/creationadam hoodie/white front simple.png",
+    "image3": "images/creationadam hoodie/white back model.png",
+    "image4": "images/creationadam hoodie/white front detail.png",
+    "colors": [
+      {
+        "name": "White",
+        "image": "images/creationadam hoodie/white back simple.png",
+        "image2": "images/creationadam hoodie/white front simple.png",
+        "image3": "images/creationadam hoodie/white back model.png",
+        "image4": "images/creationadam hoodie/white front detail.png"
+      },
+      {
+        "name": "Grey",
+        "image": "images/creationadam hoodie/grey back simple.png",
+        "image2": "images/creationadam hoodie/grey front simple.png",
+        "image3": "images/creationadam hoodie/grey back model.png",
+        "image4": "images/creationadam hoodie/grey front model.png"
+      }
+    ]
+  },
+
+  {
+    "id": "test",
+    "name": "test4",
+    "description": "I mean this painting is amazing, I hope I made it justice on this design. I had to make it a hoodie too, it is just too nice.",
+    "price": "49,99€",
+    "image": "images/creationadam hoodie/white back simple.png",
+    "image2": "images/creationadam hoodie/white front simple.png",
+    "image3": "images/creationadam hoodie/white back model.png",
+    "image4": "images/creationadam hoodie/white front detail.png",
+    "colors": [
+      {
+        "name": "White",
+        "image": "images/creationadam hoodie/white back simple.png",
+        "image2": "images/creationadam hoodie/white front simple.png",
+        "image3": "images/creationadam hoodie/white back model.png",
+        "image4": "images/creationadam hoodie/white front detail.png"
+      },
+      {
+        "name": "Grey",
+        "image": "images/creationadam hoodie/grey back simple.png",
+        "image2": "images/creationadam hoodie/grey front simple.png",
+        "image3": "images/creationadam hoodie/grey back model.png",
+        "image4": "images/creationadam hoodie/grey front model.png"
+      }
+    ]
+  } FOR -JSON
+
+FOR LITTLE DOTS UNDER PRODUCT IMAGE
+
+document.addEventListener("DOMContentLoaded", function () {
+  const carousel = document.getElementById("carousel");
+  const carouselNav = document.getElementById("carouselNav");
+  const images = Array.from(document.querySelectorAll(".image-product"));
+  let currentIndex = 0;
+
+  // Create dot buttons dynamically based on the number of images
+  images.forEach((image, index) => {
+    const dot = document.createElement("button");
+    dot.classList.add("carousel-dot");
+    dot.dataset.index = index;
+    carouselNav.appendChild(dot);
+  });
+
+  // Initialize first dot as active
+  document
+    .querySelector('.carousel-dot[data-index="0"]')
+    .classList.add("active");
+
+  // Event listener for dots
+  carouselNav.addEventListener("click", function (event) {
+    if (event.target.classList.contains("carousel-dot")) {
+      const targetIndex = Number(event.target.dataset.index);
+      currentIndex = targetIndex;
+      updateCarousel();
+    }
+  });
+
+  // Function to update carousel
+  function updateCarousel() {
+    const carouselWidth = carousel.clientWidth;
+    const scrollPosition = currentIndex * carouselWidth;
+    carousel.scrollTo({
+      left: scrollPosition,
+      behavior: "smooth",
+    });
+
+    // Update active dot
+    document.querySelector(".carousel-dot.active").classList.remove("active");
+    document
+      .querySelector(`.carousel-dot[data-index="${currentIndex}"]`)
+      .classList.add("active");
+  }
+});
+
+FOR ZOOM IN WHEN CLICK ON IMAGE FEATURE PRODUCT PAGE
+
+script.js
+
+document.addEventListener("DOMContentLoaded", function () {
+  const images = document.querySelectorAll(".clickable-image");
+  const popup = document.getElementById("image-popup");
+  const popupImage = document.getElementById("popup-image");
+  const closeBtn = document.querySelector(".close-btn-image");
+
+  images.forEach((image) => {
+    image.addEventListener("click", function () {
+      popup.style.display = "block";
+      popupImage.src = this.src;
+      popupImage.style.transform = `scale(1)`;
+    });
+  });
+
+  closeBtn.addEventListener("click", function () {
+    popup.style.display = "none";
+  });
+
+  let isDragging = false;
+  let startX, startY;
+
+  popupImage.addEventListener("mousedown", function (e) {
+    isDragging = true;
+    startX = e.clientX - popupImage.offsetLeft;
+    startY = e.clientY - popupImage.offsetTop;
+    popupImage.style.cursor = "grab";
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (isDragging) {
+      popupImage.style.left = `${e.clientX - startX}px`;
+      popupImage.style.top = `${e.clientY - startY}px`;
+    }
+  });
+
+  document.addEventListener("mouseup", function () {
+    isDragging = false;
+    popupImage.style.cursor = "grab";
+  });
+
+  let zoomLevel = 1;
+
+  popupImage.addEventListener("wheel", function (e) {
+    e.preventDefault();
+    if (e.deltaY < 0) {
+      zoomLevel = Math.min(zoomLevel + 0.1, 4);
+    } else {
+      zoomLevel = Math.max(zoomLevel - 0.1, 0.5);
+    }
+    popupImage.style.transform = `scale(${zoomLevel})`;
+  });
+});

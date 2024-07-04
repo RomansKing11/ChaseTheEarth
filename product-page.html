@@ -82,7 +82,7 @@
             <div id="menu-btn">
               <!-- <div class="sub-square"></div> -->
               <!-- ONLY FOR WITHOUT WIFI -->
-              <span><i class="fa-solid fa-bars"></i></span>
+              <span><ion-icon name="menu"></ion-icon></span>
             </div>
             <div class="main-nav">
               <ul>
@@ -110,27 +110,30 @@
                   ><li><span>Search</span></li></a
                 >
                 <a href="/"
-                  ><li id="language-changer"><span>English</span></li></a
-                >
-                <a href="/"
-                  ><li><span>Contact Us</span></li></a
+                  ><li id="wishlist"><span>Wishlist</span></li></a
                 >
                 <a href="/"
                   ><li><span>Cart</span></li></a
+                >
+                <a href="/"
+                  ><li><span>Sign In</span></li></a
                 >
               </ul>
             </div>
             <div class="right-hand-menu">
               <div id="search-icon">
-                <span><i class="fa-solid fa-magnifying-glass"></i></span>
+                <span><ion-icon name="search"></ion-icon></span>
               </div>
-              <div class="language-change-icon">
-                <span><i class="fa-solid fa-language"></i></span>
+              <div class="wishlist-icon">
+                <span><ion-icon name="heart"></ion-icon></span>
               </div>
               <div class="cart-icon">
                 <!-- <div class="sub-square"></div> -->
                 <!-- ONLY FOR WITHOUT WIFI -->
-                <span><i class="fa-solid fa-bag-shopping"></i></span>
+                <span><ion-icon name="bag"></ion-icon></span>
+              </div>
+              <div class="sign-in-icon">
+                <span><ion-icon name="person"></ion-icon></span>
               </div>
             </div>
           </div>
@@ -148,7 +151,7 @@
               We donate 50% of all of our profit to a charity that you choose
             </a>
           </p>
-          <p class="p2 unselectable message-in-messageboard">
+          <!-- <p class="p2 unselectable message-in-messageboard">
             <a href="/our-goals.html">
               We donate 50% of all of our profit to a charity that you choose
             </a>
@@ -157,142 +160,244 @@
             <a href="/our-goals.html">
               We donate 50% of all of our profit to a charity that you choose
             </a>
-          </p>
+          </p> -->
         </div>
       </nav>
 
       <!-- PRODUCT PAGE -->
+
       <section class="product-page">
-        <section class="image-section-product">
-          <div class="container">
-            <div class="product-details">
-              <div class="grid" id="carousel">
-                <div class="image-product" id="image-product1">
-                  <img
-                    class="clickable-image"
-                    id="product-image"
-                    src=""
-                    alt="Product Image"
-                  />
-                </div>
-                <div class="image-product" id="image-product2">
-                  <img
-                    class="clickable-image"
-                    id="product-image2"
-                    src=""
-                    alt="Product Image 2"
-                  />
-                </div>
-                <div class="image-product" id="image-product3">
-                  <img
-                    class="clickable-image"
-                    id="product-image3"
-                    src=""
-                    alt="Product Image 3"
-                  />
-                </div>
-                <div class="image-product" id="image-product4">
-                  <img
-                    class="clickable-image"
-                    id="product-image4"
-                    src=""
-                    alt="Product Image 4"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-nav" id="carouselNav"></div>
-        </section>
-        <section class="product-description-page">
-          <div class="container">
-            <div class="product-details">
-              <div class="grid">
-                <div>
-                  <h1 id="product-name">Product Name</h1>
-                </div>
-                <div>
-                  <p id="product-description">Product Description</p>
-                </div>
-                <div class="color-product">
-                  <p class="product-inf-title" id="color-options-title">
-                    Color
-                  </p>
-                  <div id="color-options"></div>
-                </div>
-                <div class="size-chart">
-                  <p class="product-inf-title">Sizes</p>
-                  <div id="size-outside-box">
-                    <div class="size-option unselectable" data-size="S">S</div>
-                    <div class="size-option unselectable" data-size="M">M</div>
-                    <div class="size-option unselectable" data-size="XL">
-                      XL
-                    </div>
-                    <div class="size-option unselectable" data-size="XXL">
-                      XXL
-                    </div>
-                  </div>
-                  <p id="size-chart-diagram">Size Chart</p>
-                  <!-- The popup -->
-                  <div id="popup" class="popup">
-                    <div class="popup-content">
-                      <span class="close-btn">&times;</span>
-                      <h2>Size Chart</h2>
-                      <div class="img-diagram">
+        <div class="container">
+          <div class="border">
+            <div class="container-product-img-description">
+              <div class="border-product-page">
+                <div class="flex">
+                  <div class="product-image-section">
+                    <div class="flex">
+                      <div class="image-variant-selector">
+                        <div class="flex">
+                          <img
+                            src="images/cropped-baby angel black front simple -min.png"
+                            alt=""
+                            class="image-variant unselectable"
+                            id="image-variant1"
+                          />
+                          <img
+                            src="images/cropped-baby angel black front simple -min.png"
+                            alt=""
+                            class="image-variant unselectable"
+                            id="image-variant2"
+                          />
+                          <img
+                            src="images/cropped-baby angel black front simple -min.png"
+                            alt=""
+                            class="image-variant unselectable"
+                            id="image-variant3"
+                          />
+                          <img
+                            src="images/cropped-baby angel black front simple -min.png"
+                            alt=""
+                            class="image-variant unselectable"
+                            id="image-variant4"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="main-image-product-page">
                         <img
-                          src="images/size-diagrams/Size-chart-diagram-texel.png"
-                          alt="Size Chart Diagram"
+                          src="images/cropped-baby angel black front simple -min.png"
+                          alt=""
+                          class="main-product-image unselectable"
+                          id="main-product-image1"
                         />
                       </div>
                     </div>
                   </div>
-                </div>
-                <div>
-                  <p id="product-price">Product Price</p>
-                </div>
-              </div>
-              <div class="buy-buttons">
-                <div class="flex">
-                  <div class="add-to-cart-button unselectable flex">
-                    Add to Cart
+                  <div class="product-description-section">
+                    <div class="flex">
+                      <div class="product-name" id="product-name">
+                        <h1>Sad Angel T-Shirt</h1>
+                      </div>
+                      <div class="product-price" id="product-price">
+                        <h4>$19.99</h4>
+                      </div>
+                      <div class="product-description" id="product-description">
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit. Pellentesque euismod, tortor quis efficitur
+                          efficitur, quam erat efficitur urna, sed efficitur
+                          lorem neque vitae ligula.
+                        </p>
+                      </div>
+                      <div class="color-options-section">
+                        <h4>Colors</h4>
+                        <div class="flex">
+                          <div class="color-options" id="color-option1">
+                            <img src="images/cropped-baby angel black front simple -min.png" alt="">
+                          </div>
+                          <div class="color-options" id="color-option1">
+                            <img src="images/cropped-baby angel black front simple -min.png" alt="">
+                          </div>
+                          <div class="color-options" id="color-option1">
+                            <img src="images/cropped-baby angel black front simple -min.png" alt="">
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="size-section">
+                        <h4>Sizes</h4>
+                        <div class="flex">
+                          <div class="size-selector unselectable" id="xs">
+                            <h1>XS</h1>
+                          </div>
+                          <div class="size-selector unselectable" id="s">
+                            <h1>S</h1>
+                          </div>
+                          <div class="size-selector unselectable" id="m">
+                            <h1>M</h1>
+                          </div>
+                          <div class="size-selector unselectable" id="l">
+                            <h1>L</h1>
+                          </div>
+                          <div class="size-selector unselectable" id="xl">
+                            <h1>XL</h1>
+                          </div>
+                        </div>
+                        <div class="size-chart"><p>Size Chart</p></div>
+                      </div>
+                      <div class="buttons-product-page">
+                        <div class="flex">
+                          <div class="add-to-cart">
+                            <div class="flex">
+                              <ion-icon name="bag"></ion-icon>
+                              <p>Add to Cart</p>
+                            </div>
+                          </div>
+                          <div class="add-to-wishlist">
+                            <div class="flex">
+                              <ion-icon name="heart"></ion-icon>
+                              <p>Add to Wishlist</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="extra-information-product">
+                          <div
+                            class="individual-information-product specifications"
+                          >
+                            <div class="flex">
+                              <p>Specifications</p>
+                              <ion-icon name="chevron-down"></ion-icon>
+                            </div>
+                          </div>
+                          <div class="individual-information-product shipping">
+                            <div class="flex">
+                              <p>Shipping</p>
+                              <ion-icon name="chevron-down"></ion-icon>
+                            </div>
+                          </div>
+                          <div class="individual-information-product reviews">
+                            <div class="flex">
+                              <p>Reviews</p>
+                              <div class="flex-review">
+                                <p id="review-score">4.8</p>
+                                <ion-icon
+                                  class="star-review"
+                                  name="star"
+                                ></ion-icon>
+                                <ion-icon
+                                  class="star-review"
+                                  name="star"
+                                ></ion-icon>
+                                <ion-icon
+                                  class="star-review"
+                                  name="star"
+                                ></ion-icon>
+                                <ion-icon
+                                  class="star-review"
+                                  name="star"
+                                ></ion-icon>
+                                <ion-icon
+                                  class="star-review"
+                                  name="star"
+                                ></ion-icon>
+                              </div>
+                              <ion-icon name="chevron-down"></ion-icon>
+                            </div>
+                          </div>
+                          <div
+                            class="individual-information-product others-wearing-it"
+                          >
+                            <div class="flex">
+                              <p>How Other People are Wearing It</p>
+                              <ion-icon name="chevron-down"></ion-icon>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="paypal-btn unselectable flex">Paypal</div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-      </section>
-      <section class="you-may-like">
-        <div class="container">
-          <div class="border">
-            <div class="flex">
-              <h2>You May Like</h2>
-              <div class="products-youmaylike" id="productYouMayLike">
-                <div id="grid-youmaylike" class="scroll-snap-inline"></div>
+            <section class="you-may-like">
+              <div class="flex">
+                <h1>You May Also Like</h1>
+                <div class="move-image-buttons" id="move-image-buttons">
+                  <div class="flex">
+                    <div class="circle">
+                      <div class="flex">
+                        <ion-icon name="chevron-back"></ion-icon>
+                      </div>
+                    </div>
+                    <div class="circle">
+                      <div class="flex">
+                        <ion-icon name="chevron-forward"></ion-icon>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
+              <div class="flex-you-may-like-carousel">
+                <div class="products-you-may-like">
+                  <div class="flex">
+                    <div
+                      class="product-image-you-may-like unselectable"
+                      id="product-image"
+                    >
+                      <img
+                        src="images/cropped-baby angel black front simple -min.png"
+                        alt=""
+                      />
+                    </div>
+                    <div class="product-description-you-may-like">
+                      <div class="flex">
+                        <div
+                          class="product-name-you-may-like"
+                          id="product-name"
+                        >
+                          <h1>Sad Angel T-Shirt</h1>
+                        </div>
+                        <div
+                          class="product-price-you-may-like"
+                          id="product-price"
+                        >
+                          <h4>$19.99</h4>
+                        </div>
+                        <div class="color-available" id="color-available">
+                          <div class="flex">
+                            <div class="circle-color" id="circle-color1"></div>
+                            <div class="circle-color" id="circle-color2"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
         </div>
-        <div class="scroll-arrow left unselectable" id="scrollLeft">&lt;</div>
-        <div class="scroll-arrow right unselectable" id="scrollRight">&gt;</div>
       </section>
-
-      <!-- Image Popup Modal -->
-
-      <div id="image-popup" class="popup">
-        <div class="container">
-          <span class="close-btn-image">&times;</span>
-          <div class="popup-content">
-            <img
-              class="unselectable"
-              id="popup-image"
-              src=""
-              alt="Popup Image"
-            />
-          </div>
-        </div>
-      </div>
 
       <!-- FOOTER -->
 
@@ -326,15 +431,16 @@
                     ><p class="email-in">help@chasetheearth.com</p></a
                   >
                 </div>
-                <div>
+                <div class="flex">
+                  
                   <a
                     href="https://www.instagram.com/chasetheearthofficial/?next=%2Foctagonxperience%2F"
                     target="_blank"
-                    ><i class="fa-brands fa-instagram"></i
-                  ></a>
-                  <a href=""><i class="fa-brands fa-tiktok"></i></a>
-                  <a href=""><i class="fa-brands fa-youtube"></i></a>
-                  <a href=""><i class="fa-brands fa-twitter"></i></a>
+                    ><ion-icon name="logo-instagram"></ion-icon></a
+                  >
+                  <a href=""><ion-icon name="logo-tiktok"></ion-icon></a>
+                  <a href=""><ion-icon name="logo-youtube"></ion-icon></i></a>
+                  <a href=""><ion-icon name="logo-twitter"></ion-icon></i></a>
                 </div>
               </div>
             </div>
@@ -345,5 +451,13 @@
         </div>
       </footer>
     </div>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
   </body>
 </html>

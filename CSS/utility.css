@@ -15,6 +15,13 @@
 
 /* MAIN UTILITY */
 
+html {
+  position: relative;
+  min-height: 100%;
+  min-width: 200px;
+  font-family: "lusitana";
+}
+
 html,
 body {
   margin: 0;
@@ -29,6 +36,7 @@ body {
   --secondary-color: #0a6838;
   --background-color: #f3f3f3;
   --third-color: #e3e3e3;
+  --hover-secondary-color: #07924a;
 }
 
 .main-content {
@@ -52,7 +60,7 @@ body {
 
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 2000px;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -209,17 +217,17 @@ h1 {
   transition-duration: 0.3s;
 }
 
-.navbar i {
+.navbar ion-icon {
   visibility: hidden;
   transition-duration: 0.2s;
   display: none;
 }
 
-.navbar #menu-btn i:hover {
+.navbar #menu-btn ion-icon:hover {
   transform: scale(1.05);
 }
 
-.navbar .right-hand-menu i:hover {
+.navbar .right-hand-menu ion-icon:hover {
   transform: scale(1.05);
 }
 
@@ -239,7 +247,7 @@ h1 {
   padding: 0;
 }
 
-.right-hand-menu i {
+.right-hand-menu ion-icon {
   margin-left: 15px;
   transition-duration: 0.2s;
   cursor: pointer;
@@ -445,10 +453,12 @@ h1 {
 footer {
   background-color: var(--secondary-color);
   width: 100%;
-  height: 100%;
+  height: 120px;
   font-family: "lusitana";
-  position: static;
-  z-index: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 footer .container {
@@ -471,7 +481,7 @@ footer .grid1 {
   align-items: center;
 }
 
-footer i {
+footer ion-icon {
   color: var(--background-color);
   margin-top: 25px;
   display: flex;
@@ -480,7 +490,7 @@ footer i {
   transition-duration: 0.2s;
 }
 
-footer i:hover {
+footer ion-icon:hover {
   color: rgb(188, 188, 188);
 }
 
@@ -613,7 +623,7 @@ footer .logo-shape {
     transition-duration: none;
   }
 
-  .navbar i {
+  .navbar ion-icon {
     visibility: visible;
     display: block;
   }
@@ -683,80 +693,6 @@ footer .logo-shape {
 
   footer .grid2 .flex {
     margin-top: 12px;
-  }
-
-  .product-page {
-    flex-direction: column;
-  }
-
-  .image-section-product {
-    margin-bottom: 20px;
-    width: 100%;
-  }
-
-  .image-section-product .grid {
-    grid-template-columns: repeat(4, 100%);
-    align-items: start;
-    justify-content: left;
-    gap: 0;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .image-section-product .grid::-webkit-scrollbar {
-    display: none; /* Hide scrollbar for WebKit browsers */
-  }
-
-  .image-section-product .grid .image-product {
-    width: 100%;
-    scroll-snap-align: start;
-  }
-
-  .carousel-nav {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-  }
-
-  .carousel-dot {
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    margin-right: 10px;
-    border: none;
-    background-color: var(--third-color);
-    margin: 0 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    position: relative;
-  }
-
-  .carousel-dot.active {
-    background-color: var(--secondary-color);
-  }
-
-  .carousel-dot::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 20px;
-    height: 20px;
-  }
-
-  .product-description-page {
-    width: 100%;
-    margin: 0;
-  }
-
-  .product-description-page .product-details {
-    margin: 0;
-  }
-
-  .product-description-page .border {
-    margin: 0;
   }
 }
 

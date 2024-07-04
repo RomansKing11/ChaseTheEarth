@@ -4,13 +4,10 @@
     "name": "ChangeMakers T-Shirt",
     "description": "The world needs ChangeMakers, I mean it says it twice on the shirt, so it must be true, right?",
     "price": "19,99€",
-    "image": "images/curved letters/curvedletters back simple.png",
-    "image2": "images/curved letters/curvedletters front simple.png",
-    "image3": "images/curved letters/curved letters model/curvedletters back model.png",
-    "image4": "images/curved letters/curved letters model/curvedletters front model.png",
     "colors": [
       {
         "name": "White",
+        "color": "#f3f3f3",
         "image": "images/curved letters/curvedletters back simple.png",
         "image2": "images/curved letters/curvedletters front simple.png",
         "image3": "images/curved letters/curved letters model/curvedletters back model.png",
@@ -18,6 +15,7 @@
       },
       {
         "name": "Double Cream",
+        "color": "#f3e8cb",
         "image": "images/curved letters/curvedletters back simple double cream.png",
         "image2": "images/curved letters/curvedletters front simple double cream.png",
         "image3": "images/curved letters/curved letters model/curvedletters back model double cream.png",
@@ -27,64 +25,14 @@
   },
 
   {
-    "id": "creation-adam t-shirt",
-    "name": "Creation of Adam T-Shirt",
-    "description": "I mean this painting is amazing, I hope I made it justice on this design.",
-    "price": "29,99€",
-    "image": "images/creation adam t shirt/creation adam t shirt back simple.png",
-    "image2": "images/creation adam t shirt/creation adam t shirt front simple.png",
-    "image3": "images/creation adam t shirt/mockups t shirt baggy back.png",
-    "image4": "images/creation adam t shirt/creation adam t shirt front model.png",
-    "colors": [
-      {
-        "name": "White",
-        "image": "images/creation adam t shirt/creation adam t shirt back simple.png",
-        "image2": "images/creation adam t shirt/creation adam t shirt front simple.png",
-        "image3": "images/creation adam t shirt/mockups t shirt baggy back.png",
-        "image4": "images/creation adam t shirt/creation adam t shirt front model.png"
-      }
-    ]
-  },
-
-  {
-    "id": "creation-adam hoodie",
-    "name": "Creation of Adam Hoodie",
-    "description": "I mean this painting is amazing, I hope I made it justice on this design. I had to make it a hoodie too, it is just too nice.",
-    "price": "49,99€",
-    "image": "images/creationadam hoodie/white back simple.png",
-    "image2": "images/creationadam hoodie/white front simple.png",
-    "image3": "images/creationadam hoodie/white back model.png",
-    "image4": "images/creationadam hoodie/white front detail.png",
-    "colors": [
-      {
-        "name": "White",
-        "image": "images/creationadam hoodie/white back simple.png",
-        "image2": "images/creationadam hoodie/white front simple.png",
-        "image3": "images/creationadam hoodie/white back model.png",
-        "image4": "images/creationadam hoodie/white front detail.png"
-      },
-      {
-        "name": "Grey",
-        "image": "images/creationadam hoodie/grey back simple.png",
-        "image2": "images/creationadam hoodie/grey front simple.png",
-        "image3": "images/creationadam hoodie/grey back model.png",
-        "image4": "images/creationadam hoodie/grey front model.png"
-      }
-    ]
-  },
-
-  {
     "id": "baby angel t-shirt",
     "name": "Sad Angel T-Shirt",
     "description": "Dreams can always be accomplished, as long as action comes after it",
     "price": "29,99€",
-    "image": "images/baby angel design t-shirt/baby angel navy front simple-min.png",
-    "image2": "images/baby angel design t-shirt/baby angel navy back simple-min.png",
-    "image3": "images/baby angel design t-shirt/baby angel navy back model-min.png",
-    "image4": "images/baby angel design t-shirt/baby angel navy front model-min.png",
     "colors": [
       {
         "name": "True Navy",
+        "color": "#2b415e",
         "image": "images/baby angel design t-shirt/baby angel navy front simple-min.png",
         "image2": "images/baby angel design t-shirt/baby angel navy back simple-min.png",
         "image3": "images/baby angel design t-shirt/baby angel navy back model-min.png",
@@ -93,6 +41,7 @@
 
       {
         "name": "Black",
+        "color": "#111111",
         "image": "images/baby angel design t-shirt/baby angel black front simple-min.png",
         "image2": "images/baby angel design t-shirt/baby angel black back simple-min.png",
         "image3": "images/baby angel design t-shirt/baby angel black front model-min.png",
