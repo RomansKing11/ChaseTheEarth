@@ -8,18 +8,26 @@
       {
         "name": "White",
         "colorCode": "#f3f3f3",
-        "image": "images/curved letters/curvedletters back simple.png",
-        "image2": "images/curved letters/curvedletters front simple.png",
-        "image3": "images/curved letters/curved letters model/curvedletters back model.png",
-        "image4": "images/curved letters/curved letters model/curvedletters front model.png"
+        "images": [
+          {
+            "image1": "images/curved letters/curvedletters back simple.png",
+            "image2": "images/curved letters/curvedletters front simple.png",
+            "image3": "images/curved letters/curved letters model/curvedletters back model.png",
+            "image4": "images/curved letters/curved letters model/curvedletters front model.png"
+          }
+        ]
       },
       {
         "name": "Double Cream",
         "colorCode": "#f3e8cb",
-        "image": "images/curved letters/curvedletters back simple double cream.png",
-        "image2": "images/curved letters/curvedletters front simple double cream.png",
-        "image3": "images/curved letters/curved letters model/curvedletters back model double cream.png",
-        "image4": "images/curved letters/curved letters model/curvedletters front model double cream.png"
+        "images": [
+          {
+            "image1": "images/curved letters/curvedletters back simple double cream.png",
+            "image2": "images/curved letters/curvedletters front simple double cream.png",
+            "image3": "images/curved letters/curved letters model/curvedletters back model double cream.png",
+            "image4": "images/curved letters/curved letters model/curvedletters front model double cream.png"
+          }
+        ]
       }
     ]
   },
@@ -33,18 +41,26 @@
       {
         "name": "Double Cream",
         "colorCode": "#f3e8cb",
-        "image": "images/curved letters/curvedletters back simple double cream.png",
-        "image2": "images/curved letters/curvedletters front simple double cream.png",
-        "image3": "images/curved letters/curved letters model/curvedletters back model double cream.png",
-        "image4": "images/curved letters/curved letters model/curvedletters front model double cream.png"
+        "images": [
+          {
+            "image1": "images/curved letters/curvedletters back simple double cream.png",
+            "image2": "images/curved letters/curvedletters front simple double cream.png",
+            "image3": "images/curved letters/curved letters model/curvedletters back model double cream.png",
+            "image4": "images/curved letters/curved letters model/curvedletters front model double cream.png"
+          }
+        ]
       },
       {
         "name": "White",
         "colorCode": "#f3f3f3",
-        "image": "images/curved letters/curvedletters back simple.png",
-        "image2": "images/curved letters/curvedletters front simple.png",
-        "image3": "images/curved letters/curved letters model/curvedletters back model.png",
-        "image4": "images/curved letters/curved letters model/curvedletters front model.png"
+        "images": [
+          {
+            "image1": "images/curved letters/curvedletters back simple.png",
+            "image2": "images/curved letters/curvedletters front simple.png",
+            "image3": "images/curved letters/curved letters model/curvedletters back model.png",
+            "image4": "images/curved letters/curved letters model/curvedletters front model.png"
+          }
+        ]
       }
     ]
   },
@@ -58,19 +74,27 @@
       {
         "name": "True Navy",
         "colorCode": "#2b415e",
-        "image": "images/baby angel design t-shirt/baby angel navy front simple-min.png",
-        "image2": "images/baby angel design t-shirt/baby angel navy back simple-min.png",
-        "image3": "images/baby angel design t-shirt/baby angel navy back model-min.png",
-        "image4": "images/baby angel design t-shirt/baby angel navy front model-min.png"
+        "images": [
+          {
+            "image1": "images/baby angel design t-shirt/baby angel navy front simple-min.png",
+            "image2": "images/baby angel design t-shirt/baby angel navy back simple-min.png",
+            "image3": "images/baby angel design t-shirt/baby angel navy back model-min.png",
+            "image4": "images/baby angel design t-shirt/baby angel navy front model-min.png"
+          }
+        ]
       },
 
       {
         "name": "Black",
         "colorCode": "#111111",
-        "image": "images/cropped-baby angel black front simple -min.png",
-        "image2": "images/baby angel design t-shirt/baby angel black back simple-min.png",
-        "image3": "images/baby angel design t-shirt/baby angel black front model-min.png",
-        "image4": "images/baby angel design t-shirt/baby angel black back model-min.png"
+        "images": [
+          {
+            "image1": "images/cropped-baby angel black front simple -min.png",
+            "image2": "images/baby angel design t-shirt/baby angel black back simple-min.png",
+            "image3": "images/baby angel design t-shirt/baby angel black front model-min.png",
+            "image4": "images/baby angel design t-shirt/baby angel black back model-min.png"
+          }
+        ]
       }
     ]
   },
@@ -83,18 +107,26 @@
       {
         "name": "Black",
         "colorCode": "#111111",
-        "image": "images/baby angel design t-shirt/baby angel black front simple-min.png",
-        "image2": "images/baby angel design t-shirt/baby angel black back simple-min.png",
-        "image3": "images/baby angel design t-shirt/baby angel black front model-min.png",
-        "image4": "images/baby angel design t-shirt/baby angel black back model-min.png"
+        "images": [
+          {
+            "image1": "images/baby angel design t-shirt/baby angel black front simple-min.png",
+            "image2": "images/baby angel design t-shirt/baby angel black back simple-min.png",
+            "image3": "images/baby angel design t-shirt/baby angel black front model-min.png",
+            "image4": "images/baby angel design t-shirt/baby angel black back model-min.png"
+          }
+        ]
       },
       {
         "name": "True Navy",
         "colorCode": "#2b415e",
-        "image": "images/baby angel design t-shirt/baby angel navy front simple-min.png",
-        "image2": "images/baby angel design t-shirt/baby angel navy back simple-min.png",
-        "image3": "images/baby angel design t-shirt/baby angel navy back model-min.png",
-        "image4": "images/baby angel design t-shirt/baby angel navy front model-min.png"
+        "images": [
+          {
+            "image1": "images/baby angel design t-shirt/baby angel navy front simple-min.png",
+            "image2": "images/baby angel design t-shirt/baby angel navy back simple-min.png",
+            "image3": "images/baby angel design t-shirt/baby angel navy back model-min.png",
+            "image4": "images/baby angel design t-shirt/baby angel navy front model-min.png"
+          }
+        ]
       }
     ]
   }

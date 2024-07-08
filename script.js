@@ -99,27 +99,6 @@ window.addEventListener("DOMContentLoaded", function () {
   loader.classList.add("hidden");
 });
 
-// TAKE TO PRODUCT PAGE
-document.addEventListener("DOMContentLoaded", function () {
-  const productClicked = document.getElementsByClassName("product-box");
-
-  for (let i = 0; i < productClicked.length; i++) {
-    productClicked[i].addEventListener("click", (e) => {
-      let target = e.target;
-      let productId = null;
-
-      // Search for the data-id attribute on the clicked element and its parent elements
-      while (target && !productId) {
-        productId = target.getAttribute("data-id");
-        target = target.parentElement;
-      }
-
-      // console.log(productId);
-      window.location.href = `/product-page.html?id=${productId}`;
-    });
-  }
-});
-
 // FOR MAIN PAGE PRODUCTS
 
 // for new pieces section
@@ -132,8 +111,8 @@ document.addEventListener("DOMContentLoaded", function () {
     .then((data) => {
       const products = data;
 
-      // const numberOfProducts = products.length;
-      // console.log("Number of products:", numberOfProducts);
+      // const numberOfProducts = products.colors;
+      // console.log(numberOfProducts);
 
       // Create a div for each product
       products.forEach((product) => {
@@ -148,22 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
           img1.classList.remove("hidden");
           img2.classList.add("hidden");
         });
-        productBox.addEventListener("click", function () {
-          const productId = productBox.getAttribute("data-id");
-          searchBarInput.value = productId;
 
-          // Trigger the other code that checks the searchbar for the ID and takes you to the product page
-          // You can call a function or use an event listener to achieve this
-          // For example, you can call a function named "goToProductPage"
-          goToProductPage();
-        });
-
-        function goToProductPage() {
-          // Implement the code to navigate to the product page using the product ID from the searchbar
-          // For example, you can use the window.location.href property to navigate to the product page URL
-          const productId = searchBarInput.value;
-          window.location.href = `/product-page.html?id=${productId}`;
-        }
         // Create product-content div
         const productContent = document.createElement("div");
         productContent.classList.add("product-content");
@@ -176,12 +140,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Create img tags for product images
         const img1 = document.createElement("img");
-        img1.setAttribute("src", product.colors[0].image);
+        img1.setAttribute("src", product.colors[0].images[0].image1);
         img1.classList.add("img1");
         boxInside.appendChild(img1);
 
         const img2 = document.createElement("img");
-        img2.setAttribute("src", product.colors[0].image2);
+        img2.setAttribute("src", product.colors[0].images[0].image2);
         img2.classList.add("img2");
         img2.classList.add("hidden");
         boxInside.appendChild(img2);
@@ -223,6 +187,25 @@ document.addEventListener("DOMContentLoaded", function () {
         // Append productBox to the main section
         productSection.appendChild(productBox);
       });
+      // TAKE TO PRODUCT PAGE
+      const productBox = document.querySelectorAll(".product-box");
+
+      productBox.forEach((box) => {
+        box.addEventListener("click", (e) => {
+          let target = e.target;
+          let productIdBox = null;
+          // Search for the data-id attribute on the clicked element and its parent elements
+          while (target && !productIdBox) {
+            productIdBox = target.getAttribute("data-id");
+            target = target.parentElement;
+          }
+
+          // Call the dynamicProductPage function with the productId
+          console.log("Clicked product ID:", productIdBox);
+
+          window.location.href = `/product-page.html?id=${productIdBox}`;
+        });
+      });
     });
 });
 
@@ -258,33 +241,55 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Count the number of color options
         const numberOfColorOptions = product.colors.length;
-        console.log("Number of color options:", numberOfColorOptions);
 
         // Get the first image of the color
-        const firstColorImage = product.colors[0].image;
-        console.log("First color image:", firstColorImage);
+        const firstColorImage = product.colors[0].images[0].image1;
 
         // Loop through the color options and create the image tags
         for (let i = 0; i < numberOfColorOptions; i++) {
           const colorOptionDiv = document.createElement("div");
           colorOptionDiv.classList.add("color-options");
           colorOptionDiv.id = `color-option${i + 1}`;
+          colorOptionDiv.title = product.colors[i].name;
 
           const imageTag = document.createElement("img");
-          imageTag.src = product.colors[i].image;
+          imageTag.src = product.colors[i].images[0].image1;
 
           colorOptionDiv.appendChild(imageTag);
           productFlexColorOptions.appendChild(colorOptionDiv);
         }
 
-        // Append the color options div to the color options section
-        const colorOptionsSection = document.querySelector(
-          ".color-options-section"
+        // Set the image variant images
+        const productImagesSection = document.getElementById(
+          "flex-for-img-variants"
         );
-        colorOptionsSection.appendChild(colorOptionsDiv);
+
+        if (product && product.colors && product.colors.length > 0) {
+          // Assuming we want to work with the first color variant
+          const colorVariant = product.colors[0];
+
+          // Extract image URLs
+          const imageObjects = colorVariant.images[0]; // Access the first object in the images array
+          const imageUrls = Object.values(imageObjects);
+
+          // Count how many images there are
+          const imagesOfProductForVariant = imageUrls.length;
+          console.log(`Number of images: ${imagesOfProductForVariant}`);
+
+          // Create img elements and append them
+          imageUrls.forEach((imageUrl, index) => {
+            const img = document.createElement("img");
+            img.className = "image-variant";
+            img.className = "unselectable";
+            img.src = imageUrl;
+            productImagesSection.appendChild(img);
+          });
+        } else {
+          console.error("No color variants found for this product");
+        }
 
         // Set the first color image as the main product image
-        productMainImage.src = firstColorImage;
+        productMainImage.src = product.colors[0].images[0].image1;
       } else {
         // Handle the case when the product is not found
         console.log("Product not found");
