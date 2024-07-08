@@ -120,7 +120,113 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// FOR DYNAMIC PRODUCTS
+// FOR MAIN PAGE PRODUCTS
+
+// for new pieces section
+document.addEventListener("DOMContentLoaded", function () {
+  const productSection = document.getElementById("product-section");
+
+  // Fetch products from JSON file
+  fetch("json-files/new-pieces.json")
+    .then((response) => response.json())
+    .then((data) => {
+      const products = data;
+
+      // const numberOfProducts = products.length;
+      // console.log("Number of products:", numberOfProducts);
+
+      // Create a div for each product
+      products.forEach((product) => {
+        const productBox = document.createElement("div");
+        productBox.setAttribute("data-id", product.id);
+        productBox.classList.add("product-box");
+        productBox.addEventListener("mouseenter", () => {
+          img1.classList.add("hidden");
+          img2.classList.remove("hidden");
+        });
+        productBox.addEventListener("mouseleave", () => {
+          img1.classList.remove("hidden");
+          img2.classList.add("hidden");
+        });
+        productBox.addEventListener("click", function () {
+          const productId = productBox.getAttribute("data-id");
+          searchBarInput.value = productId;
+
+          // Trigger the other code that checks the searchbar for the ID and takes you to the product page
+          // You can call a function or use an event listener to achieve this
+          // For example, you can call a function named "goToProductPage"
+          goToProductPage();
+        });
+
+        function goToProductPage() {
+          // Implement the code to navigate to the product page using the product ID from the searchbar
+          // For example, you can use the window.location.href property to navigate to the product page URL
+          const productId = searchBarInput.value;
+          window.location.href = `/product-page.html?id=${productId}`;
+        }
+        // Create product-content div
+        const productContent = document.createElement("div");
+        productContent.classList.add("product-content");
+
+        productBox.appendChild(productContent);
+
+        // Create box-inside div
+        const boxInside = document.createElement("div");
+        boxInside.classList.add("box-inside");
+
+        // Create img tags for product images
+        const img1 = document.createElement("img");
+        img1.setAttribute("src", product.colors[0].image);
+        img1.classList.add("img1");
+        boxInside.appendChild(img1);
+
+        const img2 = document.createElement("img");
+        img2.setAttribute("src", product.colors[0].image2);
+        img2.classList.add("img2");
+        img2.classList.add("hidden");
+        boxInside.appendChild(img2);
+
+        productContent.appendChild(boxInside);
+
+        // Create product-details div
+        const productDetails = document.createElement("div");
+        productDetails.classList.add("product-details");
+
+        // Create product-name h3
+        const productName = document.createElement("h3");
+        productName.classList.add("product-name");
+        productName.textContent = product.name;
+        productDetails.appendChild(productName);
+
+        // Create product-price p
+        const productPrice = document.createElement("p");
+        productPrice.classList.add("product-price");
+        productPrice.textContent = product.price;
+        productDetails.appendChild(productPrice);
+
+        productBox.appendChild(productDetails);
+
+        // Create color-choices div
+        const colorChoices = document.createElement("div");
+        colorChoices.classList.add("color-choices");
+
+        // Create color-circle divs for each color
+        product.colors.forEach((color, index) => {
+          const colorCircle = document.createElement("div");
+          colorCircle.classList.add("color-circle", `color${index + 1}`);
+          colorCircle.style.backgroundColor = color.colorCode;
+          colorChoices.appendChild(colorCircle);
+        });
+        productContent.appendChild(productDetails);
+        productDetails.appendChild(colorChoices);
+
+        // Append productBox to the main section
+        productSection.appendChild(productBox);
+      });
+    });
+});
+
+// FOR DYNAMIC PRODUCTS IN PRODUCT PAGE
 document.addEventListener("DOMContentLoaded", function () {
   const productName = document.getElementById("product-name");
   const productPrice = document.getElementById("product-price");
