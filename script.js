@@ -274,16 +274,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
           // Count how many images there are
           const imagesOfProductForVariant = imageUrls.length;
-          console.log(`Number of images: ${imagesOfProductForVariant}`);
 
-          // Create img elements and append them
-          imageUrls.forEach((imageUrl, index) => {
+          for (let h = 0; h < imagesOfProductForVariant; h++) {
             const img = document.createElement("img");
-            img.className = "image-variant";
-            img.className = "unselectable";
-            img.src = imageUrl;
+            img.className = "image-variant unselectable";
+            img.id = `image-variant${h + 1}`;
+            img.src = imageUrls[h];
             productImagesSection.appendChild(img);
-          });
+          }
+
+          // // Create img elements and append them
+          // imageUrls.forEach((imageUrl, index) => {
+          //   const img = document.createElement("img");
+          //   img.className = "image-variant";
+          //   img.className = "unselectable";
+          //   img.className = "unselectable";
+          //   img.src = imageUrl;
+          //   productImagesSection.appendChild(img);
+          // });
         } else {
           console.error("No color variants found for this product");
         }
@@ -295,7 +303,75 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("Product not found");
       }
     })
+
     .catch((error) => {
       console.error("Error fetching products:", error);
     });
+});
+
+// to set the color of the shirts and change main image to image variant
+
+document.addEventListener("DOMContentLoaded", function () {
+  setTimeout(() => {
+    const colorOptionDivs = document.getElementsByClassName("color-options");
+    const productMainImage = document.getElementById("main-product-image");
+    const variantImages = document.getElementsByClassName("image-variant");
+
+    let selectedColorDiv = colorOptionDivs[0]; // Initialize with the first color option
+
+    // Add the "selected" class to the first color option
+    selectedColorDiv.classList.add("selected");
+
+    // Add event listener to each color option
+    for (let i = 0; i < colorOptionDivs.length; i++) {
+      colorOptionDivs[i].addEventListener("click", function () {
+        // Remove the "selected" class from the previously selected color option
+        if (selectedColorDiv) {
+          selectedColorDiv.classList.remove("selected");
+        }
+
+        // Add the "selected" class to the clicked color option
+        selectedColorDiv = colorOptionDivs[i];
+        selectedColorDiv.classList.add("selected");
+
+        fetch("json-files/products.json")
+          .then((response) => response.json())
+          .then((data) => {
+            const productId = new URLSearchParams(window.location.search).get(
+              "id"
+            );
+            const product = data.find((product) => product.id === productId);
+
+            const selectedColor = product.colors[i];
+            const images = selectedColor.images[0];
+
+            let imageIndex = 1;
+
+            for (let j = 0; j < variantImages.length; j++) {
+              const imageKey = `image${imageIndex}`;
+              if (images[imageKey]) {
+                variantImages[j].src = images[imageKey];
+              }
+              imageIndex++;
+            }
+
+            // Event listener for each variant image
+            Array.from(variantImages).forEach((variantImage, index) => {
+              variantImage.addEventListener("click", () => {
+                // Remove selected class from all variant images
+                Array.from(variantImages).forEach((img) => {
+                  img.classList.remove("selected");
+                });
+
+                // Add selected class to the clicked variant image
+                variantImage.classList.add("selected");
+
+                // Change the main product image to the clicked variant image src
+                productMainImage.src = variantImage.src;
+              });
+            });
+          });
+      });
+    }
+  }, 100); // Basically just add a delay of 50ms cause it was trying to access the classes before they were fully loaded.
 });

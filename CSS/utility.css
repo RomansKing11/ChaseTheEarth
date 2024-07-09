@@ -95,6 +95,10 @@ h1 {
   background-color: black;
 }
 
+.selected {
+  border: 1px solid var(--secondary-color);
+}
+
 /* CODE FOR JAVASCRIPT WORKING */
 
 #main-logo-id.hidden {
