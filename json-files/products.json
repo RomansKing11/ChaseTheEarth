@@ -11,9 +11,7 @@
         "images": [
           {
             "image1": "images/curved letters/curvedletters back simple.png",
-            "image2": "images/curved letters/curvedletters front simple.png",
-            "image3": "images/curved letters/curved letters model/curvedletters back model.png",
-            "image4": "images/curved letters/curved letters model/curvedletters front model.png"
+            "image2": "images/curved letters/curvedletters front simple.png"
           }
         ]
       },
@@ -23,9 +21,7 @@
         "images": [
           {
             "image1": "images/curved letters/curvedletters back simple double cream.png",
-            "image2": "images/curved letters/curvedletters front simple double cream.png",
-            "image3": "images/curved letters/curved letters model/curvedletters back model double cream.png",
-            "image4": "images/curved letters/curved letters model/curvedletters front model double cream.png"
+            "image2": "images/curved letters/curvedletters front simple double cream.png"
           }
         ]
       }
@@ -44,9 +40,7 @@
         "images": [
           {
             "image1": "images/curved letters/curvedletters back simple double cream.png",
-            "image2": "images/curved letters/curvedletters front simple double cream.png",
-            "image3": "images/curved letters/curved letters model/curvedletters back model double cream.png",
-            "image4": "images/curved letters/curved letters model/curvedletters front model double cream.png"
+            "image2": "images/curved letters/curvedletters front simple double cream.png"
           }
         ]
       },
@@ -56,9 +50,7 @@
         "images": [
           {
             "image1": "images/curved letters/curvedletters back simple.png",
-            "image2": "images/curved letters/curvedletters front simple.png",
-            "image3": "images/curved letters/curved letters model/curvedletters back model.png",
-            "image4": "images/curved letters/curved letters model/curvedletters front model.png"
+            "image2": "images/curved letters/curvedletters front simple.png"
           }
         ]
       }
