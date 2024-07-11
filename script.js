@@ -1,3 +1,4 @@
+// MENU BUTTON MOBILE
 document.addEventListener("DOMContentLoaded", function () {
   const menuButton = document.getElementById("menu-btn"); // Correct ID
   const menuMobile = document.getElementById("menu-mobile");
@@ -92,463 +93,421 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // LOADER
 
+const loader = document.getElementById("loader");
+
+window.addEventListener("DOMContentLoaded", function () {
+  loader.classList.add("hidden");
+});
+
+// FOR MAIN PAGE PRODUCTS
+
+// for new pieces section
 document.addEventListener("DOMContentLoaded", function () {
-  const loader = document.getElementById("loader");
-  const mainContent = document.getElementById("main-content");
-  const homeLink = document.getElementById("home-link");
+  const gridMainSection = document.getElementById("grid-main-page");
 
-  if (!sessionStorage.getItem("loaderShown")) {
-    sessionStorage.setItem("loaderShown", "true");
-    showLoader();
-  } else {
-    hideLoader();
-  }
-
-  homeLink.addEventListener("click", (event) => {
-    if (sessionStorage.getItem("loaderShown") === "true") {
-      event.preventDefault();
-      hideLoader();
-    }
-  });
-
-  function showLoader() {
-    loader.classList.remove("hidden");
-    mainContent.classList.add("hidden");
-    setTimeout(hideLoader, 1200); // Simulate loading time
-  }
-
-  function hideLoader() {
-    loader.classList.add("hidden");
-    mainContent.classList.remove("hidden");
-    document.body.style.overflowX = "hidden";
-    document.body.style.overflowY = "auto";
-  }
-});
-
-// FOR DYNAMIC PRODUCTS
-
-// FOR PRODUCT-BOX
-
-document.addEventListener("DOMContentLoaded", () => {
-  const productBoxes = document.querySelectorAll(".product-box");
-
-  productBoxes.forEach((box) => {
-    box.addEventListener("click", () => {
-      const productId = box.getAttribute("data-id");
-      if (productId) {
-        window.location.href = `product-page.html?id=${productId}`;
-      } else {
-        console.error("Product ID not found");
-      }
-    });
-  });
-});
-
-// FOR PRODUCT PAGE !!! (!!! means header)
-
-// TO CHANGE IMAGE WITH COLOR ETC
-
-document.addEventListener("DOMContentLoaded", () => {
-  // Fetch the product data
-  fetch("/json-files/products.json")
+  // Fetch products from JSON file
+  fetch("json-files/new-pieces.json")
     .then((response) => response.json())
-    .then((products) => {
-      // Get the product ID from the URL
-      const params = new URLSearchParams(window.location.search);
-      const productId = params.get("id");
+    .then((data) => {
+      const products = data;
 
-      if (productId) {
-        // Find the product with the matching ID
-        const product = products.find((p) => p.id === productId); //p => p.id === productId is an arrow function used as the testing function inside .find(). p represents each product object in the products array as the .find() method iterates through the array.
-        if (product) {
-          // Update the HTML elements with the product data
-          document.getElementById("product-image").src = product.image;
-          document.getElementById("product-image2").src = product.image2;
-          document.getElementById("product-image3").src = product.image3;
-          document.getElementById("product-image4").src = product.image4;
-          document.getElementById("product-name").textContent = product.name;
-          document.getElementById("product-description").textContent =
-            product.description;
-          document.getElementById("product-price").textContent = product.price;
+      // const numberOfProducts = products.colors;
+      // console.log(numberOfProducts);
 
-          const colorOptionsContainer =
-            document.querySelector("#color-options");
-          colorOptionsContainer.innerHTML = ""; // Clear any existing color options
+      // Create a div for each product
+      products.forEach((product) => {
+        const productBox = document.createElement("div");
+        productBox.setAttribute("data-id", product.id);
+        productBox.classList.add("product-box");
+        productBox.addEventListener("mouseenter", () => {
+          img1.classList.add("hidden");
+          img2.classList.remove("hidden");
+        });
+        productBox.addEventListener("mouseleave", () => {
+          img1.classList.remove("hidden");
+          img2.classList.add("hidden");
+        });
 
-          product.colors.forEach((color) => {
-            const colorDiv = document.createElement("div");
-            colorDiv.className = "color-option";
+        // Create product-content div
+        const productContent = document.createElement("div");
+        productContent.classList.add("product-content");
 
-            const colorImage = document.createElement("img");
-            colorImage.src = color.image;
-            colorImage.alt = color.name;
-            colorImage.title = color.name; // For accessibility
+        productBox.appendChild(productContent);
 
-            colorDiv.appendChild(colorImage);
-            colorOptionsContainer.appendChild(colorDiv);
+        // Create box-inside div
+        const boxInside = document.createElement("div");
+        boxInside.classList.add("box-inside");
 
-            // Add click event listener to change main product image
-            colorDiv.addEventListener("click", () => {
-              document.getElementById("product-image").src = color.image;
-              document.getElementById("product-image2").src = color.image2;
-              document.getElementById("product-image3").src = color.image3;
-              document.getElementById("product-image4").src = color.image4;
-            });
-          });
-        } else {
-          console.error("Product not found");
-        }
-      } else {
-        console.error("No product ID in URL");
-      }
-    })
-    .catch((error) => console.error("Error fetching product data:", error));
-});
+        // Create img tags for product images
+        const img1 = document.createElement("img");
+        img1.setAttribute("src", product.colors[0].images[0].image1);
+        img1.classList.add("img1");
+        img1.classList.add("unselectable");
+        boxInside.appendChild(img1);
 
-// FOR SIZE CHART
+        const img2 = document.createElement("img");
+        img2.setAttribute("src", product.colors[0].images[0].image2);
+        img2.classList.add("img2");
+        img2.classList.add("unselectable");
+        img2.classList.add("hidden");
+        boxInside.appendChild(img2);
 
-document.addEventListener("DOMContentLoaded", () => {
-  let selectedSize = null;
+        productContent.appendChild(boxInside);
 
-  document.querySelectorAll(".size-option").forEach((option) => {
-    option.addEventListener("click", () => {
-      // Remove the selected class from all size options
-      document
-        .querySelectorAll(".size-option")
-        .forEach((opt) => opt.classList.remove("selected"));
+        // Create product-details div
+        const productDetails = document.createElement("div");
+        productDetails.classList.add("product-details");
 
-      // Add the selected class to the clicked size option
-      option.classList.add("selected");
+        // Create product-name h3
+        const productName = document.createElement("h3");
+        productName.classList.add("product-name");
+        productName.textContent = product.name;
+        productDetails.appendChild(productName);
 
-      // Save the selected size
-      selectedSize = option.getAttribute("data-size");
+        // Create product-price p
+        const productPrice = document.createElement("p");
+        productPrice.classList.add("product-price");
+        productPrice.textContent = product.price;
+        productDetails.appendChild(productPrice);
 
-      // Log the selected size (for debugging)
-      console.log("Selected size:", selectedSize);
+        productBox.appendChild(productDetails);
 
-      // You can save the selected size to localStorage or a global variable for later use
-      localStorage.setItem("selectedSize", selectedSize);
-    });
-  });
-});
+        // Create color-choices div
+        const colorChoices = document.createElement("div");
+        colorChoices.classList.add("color-choices");
 
-// POPUP FOR SIZE CHART
+        // Create color-circle divs for each color
+        product.colors.forEach((color, index) => {
+          const colorCircle = document.createElement("div");
+          colorCircle.classList.add("color-circle", `color${index + 1}`);
+          colorCircle.style.backgroundColor = color.colorCode;
+          colorChoices.appendChild(colorCircle);
+        });
+        productContent.appendChild(productDetails);
+        productDetails.appendChild(colorChoices);
 
-document.addEventListener("DOMContentLoaded", () => {
-  const popup = document.getElementById("popup");
-  const sizeChartDiagram = document.getElementById("size-chart-diagram");
-  const closeBtn = document.querySelector(".close-btn");
-
-  // Show the popup when the button is clicked
-  sizeChartDiagram.addEventListener("click", () => {
-    popup.style.display = "block";
-  });
-
-  // Close the popup when the close button is clicked
-  closeBtn.addEventListener("click", () => {
-    popup.style.display = "none";
-  });
-
-  // Close the popup when clicking outside the popup content
-  window.addEventListener("click", (event) => {
-    if (event.target === popup) {
-      popup.style.display = "none";
-    }
-  });
-});
-
-// YOU MAY LIKE SECTION
-document.addEventListener("DOMContentLoaded", () => {
-  fetch("/json-files/products.json")
-    .then((response) => response.json())
-    .then((productOptions) => {
-      const totalProducts = productOptions.length;
-      const MAX_LIMIT = 8; // Maximum number of products to display
-
-      // Select products randomly
-      const selectedProducts = [];
-
-      // Function to generate random unique indices
-      function getRandomUniqueIndices(maxIndex, count) {
-        const indices = [];
-        while (indices.length < count) {
-          const randomIndex = Math.floor(Math.random() * maxIndex);
-          if (!indices.includes(randomIndex)) {
-            indices.push(randomIndex);
-          }
-        }
-        return indices;
-      }
-
-      // Get random unique indices
-      const randomIndices = getRandomUniqueIndices(
-        totalProducts,
-        Math.min(MAX_LIMIT, totalProducts)
-      );
-
-      // Add selected products based on random indices
-      randomIndices.forEach((index) => {
-        const product = productOptions[index];
-        selectedProducts.push(product);
+        // Append productBox to the main section
+        gridMainSection.appendChild(productBox);
       });
+      // TAKE TO PRODUCT PAGE
+      const productBox = document.querySelectorAll(".product-box");
 
-      // Create elements for selected products
-      selectedProducts.forEach((option) => {
-        const createdDiv = document.createElement("div");
-        createdDiv.className = "youmaylike-product";
-        createdDiv.setAttribute("data-id", option.id); // Set data-id attribute
+      productBox.forEach((box) => {
+        box.addEventListener("click", (e) => {
+          let target = e.target;
+          let productIdBox = null;
+          // Search for the data-id attribute on the clicked element and its parent elements
+          while (target && !productIdBox) {
+            productIdBox = target.getAttribute("data-id");
+            target = target.parentElement;
+          }
 
-        const createdImg = document.createElement("img");
-        createdImg.src = option.image;
-        createdImg.className = "unselectable";
+          // Call the dynamicProductPage function with the productId
+          console.log("Clicked product ID:", productIdBox);
 
-        const createdH3 = document.createElement("h3");
-        createdH3.textContent = option.name;
-        createdH3.className = "unselectable";
-
-        createdDiv.appendChild(createdImg);
-        createdDiv.appendChild(createdH3);
-
-        document.getElementById("grid-youmaylike").appendChild(createdDiv);
-
-        createdDiv.addEventListener("click", () => {
-          // Retrieve data-id attribute value
-          const productId = createdDiv.getAttribute("data-id");
-
-          // Navigate to product page using the productId
-          window.location.href = `/product-page.html?id=${productId}`;
+          window.location.href = `/product-page.html?id=${productIdBox}`;
         });
       });
+    });
+});
+
+// FOR DYNAMIC PRODUCTS IN PRODUCT PAGE
+document.addEventListener("DOMContentLoaded", function () {
+  const productName = document.getElementById("product-name");
+  const productPrice = document.getElementById("product-price");
+  const productDescription = document.getElementById("product-description");
+  const productImageVariant = document.getElementsByClassName("image-variant");
+  const productMainImage = document.getElementById("main-product-image");
+  const productFlexColorOptions = document.getElementById(
+    "flex-for-color-options"
+  );
+
+  fetch("json-files/products.json")
+    .then((response) => response.json())
+    .then((data) => {
+      const productId = new URLSearchParams(window.location.search).get("id");
+      const product = data.find((product) => product.id === productId);
+
+      if (product) {
+        const productNameH1 = document.createElement("h1");
+        productNameH1.textContent = product.name;
+        productName.appendChild(productNameH1);
+
+        const productPriceH4 = document.createElement("h4");
+        productPriceH4.textContent = product.price;
+        productPrice.appendChild(productPriceH4);
+
+        const productDescriptionP = document.createElement("p");
+        productDescriptionP.textContent = product.description;
+        productDescription.appendChild(productDescriptionP);
+
+        // Count the number of color options
+        const numberOfColorOptions = product.colors.length;
+
+        // Get the first image of the color
+        const firstColorImage = product.colors[0].images[0].image1;
+
+        // Loop through the color options and create the image tags
+        for (let i = 0; i < numberOfColorOptions; i++) {
+          const colorOptionDiv = document.createElement("div");
+          colorOptionDiv.classList.add("color-options");
+          colorOptionDiv.id = `color-option${i + 1}`;
+          colorOptionDiv.title = product.colors[i].name;
+
+          const imageTag = document.createElement("img");
+          imageTag.src = product.colors[i].images[0].image1;
+
+          colorOptionDiv.appendChild(imageTag);
+          productFlexColorOptions.appendChild(colorOptionDiv);
+        }
+
+        // Set the image variant images
+        const productImagesSection = document.getElementById(
+          "flex-for-img-variants"
+        );
+
+        if (product && product.colors && product.colors.length > 0) {
+          // Assuming we want to work with the first color variant
+          const colorVariant = product.colors[0];
+
+          // Extract image URLs
+          const imageObjects = colorVariant.images[0]; // Access the first object in the images array
+          const imageUrls = Object.values(imageObjects);
+
+          // Count how many images there are
+          const imagesOfProductForVariant = imageUrls.length;
+
+          for (let h = 0; h < imagesOfProductForVariant; h++) {
+            const img = document.createElement("img");
+            img.className = "image-variant unselectable";
+            img.id = `image-variant${h + 1}`;
+            img.src = imageUrls[h];
+            productImagesSection.appendChild(img);
+          }
+
+          // // Create img elements and append them
+          // imageUrls.forEach((imageUrl, index) => {
+          //   const img = document.createElement("img");
+          //   img.className = "image-variant";
+          //   img.className = "unselectable";
+          //   img.className = "unselectable";
+          //   img.src = imageUrl;
+          //   productImagesSection.appendChild(img);
+          // });
+        } else {
+          console.error("No color variants found for this product");
+        }
+
+        // Set the first color image as the main product image
+        productMainImage.src = product.colors[0].images[0].image1;
+      } else {
+        // Handle the case when the product is not found
+        console.log("Product not found");
+      }
     })
+
     .catch((error) => {
-      console.error("Error fetching or parsing products:", error);
+      console.error("Error fetching products:", error);
     });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("productYouMayLike");
-  const scrollLeft = document.getElementById("scrollLeft");
-  const scrollRight = document.getElementById("scrollRight");
-
-  scrollLeft.addEventListener("click", () => {
-    container.scrollLeft -= 190; // Adjust scroll amount as needed
-  });
-
-  scrollRight.addEventListener("click", () => {
-    container.scrollLeft += 190; // Adjust scroll amount as needed
-  });
-});
-
-// ,
-
-//   {
-//     "id": "test",
-//     "name": "test1",
-//     "description": "I mean this painting is amazing, I hope I made it justice on this design. I had to make it a hoodie too, it is just too nice.",
-//     "price": "49,99€",
-//     "image": "images/creationadam hoodie/white back simple.png",
-//     "image2": "images/creationadam hoodie/white front simple.png",
-//     "image3": "images/creationadam hoodie/white back model.png",
-//     "image4": "images/creationadam hoodie/white front detail.png",
-//     "colors": [
-//       {
-//         "name": "White",
-//         "image": "images/creationadam hoodie/white back simple.png",
-//         "image2": "images/creationadam hoodie/white front simple.png",
-//         "image3": "images/creationadam hoodie/white back model.png",
-//         "image4": "images/creationadam hoodie/white front detail.png"
-//       },
-//       {
-//         "name": "Grey",
-//         "image": "images/creationadam hoodie/grey back simple.png",
-//         "image2": "images/creationadam hoodie/grey front simple.png",
-//         "image3": "images/creationadam hoodie/grey back model.png",
-//         "image4": "images/creationadam hoodie/grey front model.png"
-//       }
-//     ]
-//   },
-
-//   {
-//     "id": "test",
-//     "name": "test2",
-//     "description": "I mean this painting is amazing, I hope I made it justice on this design. I had to make it a hoodie too, it is just too nice.",
-//     "price": "49,99€",
-//     "image": "images/creationadam hoodie/white back simple.png",
-//     "image2": "images/creationadam hoodie/white front simple.png",
-//     "image3": "images/creationadam hoodie/white back model.png",
-//     "image4": "images/creationadam hoodie/white front detail.png",
-//     "colors": [
-//       {
-//         "name": "White",
-//         "image": "images/creationadam hoodie/white back simple.png",
-//         "image2": "images/creationadam hoodie/white front simple.png",
-//         "image3": "images/creationadam hoodie/white back model.png",
-//         "image4": "images/creationadam hoodie/white front detail.png"
-//       },
-//       {
-//         "name": "Grey",
-//         "image": "images/creationadam hoodie/grey back simple.png",
-//         "image2": "images/creationadam hoodie/grey front simple.png",
-//         "image3": "images/creationadam hoodie/grey back model.png",
-//         "image4": "images/creationadam hoodie/grey front model.png"
-//       }
-//     ]
-//   },
-
-//   {
-//     "id": "test",
-//     "name": "test3",
-//     "description": "I mean this painting is amazing, I hope I made it justice on this design. I had to make it a hoodie too, it is just too nice.",
-//     "price": "49,99€",
-//     "image": "images/creationadam hoodie/white back simple.png",
-//     "image2": "images/creationadam hoodie/white front simple.png",
-//     "image3": "images/creationadam hoodie/white back model.png",
-//     "image4": "images/creationadam hoodie/white front detail.png",
-//     "colors": [
-//       {
-//         "name": "White",
-//         "image": "images/creationadam hoodie/white back simple.png",
-//         "image2": "images/creationadam hoodie/white front simple.png",
-//         "image3": "images/creationadam hoodie/white back model.png",
-//         "image4": "images/creationadam hoodie/white front detail.png"
-//       },
-//       {
-//         "name": "Grey",
-//         "image": "images/creationadam hoodie/grey back simple.png",
-//         "image2": "images/creationadam hoodie/grey front simple.png",
-//         "image3": "images/creationadam hoodie/grey back model.png",
-//         "image4": "images/creationadam hoodie/grey front model.png"
-//       }
-//     ]
-//   },
-
-//   {
-//     "id": "test",
-//     "name": "test4",
-//     "description": "I mean this painting is amazing, I hope I made it justice on this design. I had to make it a hoodie too, it is just too nice.",
-//     "price": "49,99€",
-//     "image": "images/creationadam hoodie/white back simple.png",
-//     "image2": "images/creationadam hoodie/white front simple.png",
-//     "image3": "images/creationadam hoodie/white back model.png",
-//     "image4": "images/creationadam hoodie/white front detail.png",
-//     "colors": [
-//       {
-//         "name": "White",
-//         "image": "images/creationadam hoodie/white back simple.png",
-//         "image2": "images/creationadam hoodie/white front simple.png",
-//         "image3": "images/creationadam hoodie/white back model.png",
-//         "image4": "images/creationadam hoodie/white front detail.png"
-//       },
-//       {
-//         "name": "Grey",
-//         "image": "images/creationadam hoodie/grey back simple.png",
-//         "image2": "images/creationadam hoodie/grey front simple.png",
-//         "image3": "images/creationadam hoodie/grey back model.png",
-//         "image4": "images/creationadam hoodie/grey front model.png"
-//       }
-//     ]
-//   } FOR -JSON
-
-// FOR LITTLE DOTS UNDER PRODUCT IMAGE
+// to set the color of the shirts and change main image to image variant
 
 document.addEventListener("DOMContentLoaded", function () {
-  const carousel = document.getElementById("carousel");
-  const carouselNav = document.getElementById("carouselNav");
-  const images = Array.from(document.querySelectorAll(".image-product"));
-  let currentIndex = 0;
+  setTimeout(() => {
+    const colorOptionDivs = document.getElementsByClassName("color-options");
+    const productMainImage = document.getElementById("main-product-image");
+    const variantImages = document.getElementsByClassName("image-variant");
 
-  // Create dot buttons dynamically based on the number of images
-  images.forEach((image, index) => {
-    const dot = document.createElement("button");
-    dot.classList.add("carousel-dot");
-    dot.dataset.index = index;
-    carouselNav.appendChild(dot);
-  });
+    let selectedColorDiv = colorOptionDivs[0]; // Initialize with the first color option
 
-  // Initialize first dot as active
-  document
-    .querySelector('.carousel-dot[data-index="0"]')
-    .classList.add("active");
+    // Add the "selected" class to the first color option
+    selectedColorDiv.classList.add("selected");
 
-  // Event listener for dots
-  carouselNav.addEventListener("click", function (event) {
-    if (event.target.classList.contains("carousel-dot")) {
-      const targetIndex = Number(event.target.dataset.index);
-      currentIndex = targetIndex;
-      updateCarousel();
+    // Add event listener to each color option
+    for (let i = 0; i < colorOptionDivs.length; i++) {
+      colorOptionDivs[i].addEventListener("click", function () {
+        // Remove the "selected" class from the previously selected color option
+        if (selectedColorDiv) {
+          selectedColorDiv.classList.remove("selected");
+        }
+
+        // Add the "selected" class to the clicked color option
+        selectedColorDiv = colorOptionDivs[i];
+        selectedColorDiv.classList.add("selected");
+
+        fetch("json-files/products.json")
+          .then((response) => response.json())
+          .then((data) => {
+            const productId = new URLSearchParams(window.location.search).get(
+              "id"
+            );
+            const product = data.find((product) => product.id === productId);
+
+            const selectedColor = product.colors[i];
+            const images = selectedColor.images[0];
+
+            let imageIndex = 1;
+
+            for (let j = 0; j < variantImages.length; j++) {
+              const imageKey = `image${imageIndex}`;
+              if (images[imageKey]) {
+                variantImages[j].src = images[imageKey];
+              }
+              imageIndex++;
+            }
+
+            // Event listener for each variant image
+            Array.from(variantImages).forEach((variantImage, index) => {
+              variantImage.addEventListener("click", () => {
+                // Remove selected class from all variant images
+                Array.from(variantImages).forEach((img) => {
+                  img.classList.remove("selected");
+                });
+
+                // Add selected class to the clicked variant image
+                variantImage.classList.add("selected");
+
+                // Change the main product image to the clicked variant image src
+                productMainImage.src = variantImage.src;
+              });
+            });
+          });
+      });
     }
-  });
-
-  // Function to update carousel
-  function updateCarousel() {
-    const carouselWidth = carousel.clientWidth;
-    const scrollPosition = currentIndex * carouselWidth;
-    carousel.scrollTo({
-      left: scrollPosition,
-      behavior: "smooth",
-    });
-
-    // Update active dot
-    document.querySelector(".carousel-dot.active").classList.remove("active");
-    document
-      .querySelector(`.carousel-dot[data-index="${currentIndex}"]`)
-      .classList.add("active");
-  }
+  }, 100); // Basically just add a delay of 50ms cause it was trying to access the classes before they were fully loaded.
 });
 
-// FOR ZOOM IN WHEN CLICK ON IMAGE FEATURE PRODUCT PAGE
-
-// script.js
+// for you may also like section
 
 document.addEventListener("DOMContentLoaded", function () {
-  const images = document.querySelectorAll(".clickable-image");
-  const popup = document.getElementById("image-popup");
-  const popupImage = document.getElementById("popup-image");
-  const closeBtn = document.querySelector(".close-btn-image");
+  const flexYouMayLike = document.getElementById("flex-products-you-may-like");
 
-  images.forEach((image) => {
-    image.addEventListener("click", function () {
-      popup.style.display = "block";
-      popupImage.src = this.src;
-      popupImage.style.transform = `scale(1)`;
+  // Fetch products from JSON file
+  fetch("json-files/TEMPORARY REPEATED PRODUCTS.json")
+    .then((response) => response.json())
+    .then((data) => {
+      const products = data;
+
+      // const numberOfProducts = products.colors;
+      // console.log(numberOfProducts);
+
+      // Create a set to store the unique product IDs
+      const uniqueProductIds = new Set();
+
+      // Limit the number of products to 8
+      const limitedProducts = products.slice(0, 8);
+
+      // Shuffle the limitedProducts array
+      for (let i = limitedProducts.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [limitedProducts[i], limitedProducts[j]] = [
+          limitedProducts[j],
+          limitedProducts[i],
+        ];
+      }
+
+      // Create a div for each product
+      limitedProducts.forEach((product) => {
+        if (!uniqueProductIds.has(product.id)) {
+          const productBoxYouMayLike = document.createElement("div");
+          productBoxYouMayLike.setAttribute("data-id", product.id);
+          productBoxYouMayLike.classList.add("product-box-you-may-like");
+          productBoxYouMayLike.addEventListener("mouseenter", () => {
+            img1.classList.add("hidden");
+            img2.classList.remove("hidden");
+          });
+          productBoxYouMayLike.addEventListener("mouseleave", () => {
+            img1.classList.remove("hidden");
+            img2.classList.add("hidden");
+          });
+
+          // Create product-content div
+          const productContentYouMayLike = document.createElement("div");
+          productContentYouMayLike.classList.add(
+            "product-content-you-may-like"
+          );
+
+          productBoxYouMayLike.appendChild(productContentYouMayLike);
+
+          // Create box-inside div
+          const boxInsideYouMayLike = document.createElement("div");
+          boxInsideYouMayLike.classList.add("box-inside-you-may-like");
+
+          // Create img tags for product images
+          const img1 = document.createElement("img");
+          img1.setAttribute("src", product.colors[0].images[0].image1);
+          img1.classList.add("img1");
+          img1.classList.add("unselectable");
+          boxInsideYouMayLike.appendChild(img1);
+
+          const img2 = document.createElement("img");
+          img2.setAttribute("src", product.colors[0].images[0].image2);
+          img2.classList.add("img2");
+          img2.classList.add("unselectable");
+          img2.classList.add("hidden");
+          boxInsideYouMayLike.appendChild(img2);
+
+          productContentYouMayLike.appendChild(boxInsideYouMayLike);
+
+          // Create product-details div
+          const productDetails = document.createElement("div");
+          productDetails.classList.add("product-details-you-may-like");
+
+          // Create product-name h3
+          const productName = document.createElement("h3");
+          productName.classList.add("product-name-you-may-like");
+          productName.textContent = product.name;
+          productDetails.appendChild(productName);
+
+          // Create product-price p
+          const productPrice = document.createElement("p");
+          productPrice.classList.add("product-price-you-may-like");
+          productPrice.textContent = product.price;
+          productDetails.appendChild(productPrice);
+
+          // Create color-choices div
+          const colorChoices = document.createElement("div");
+          colorChoices.classList.add("color-available");
+
+          // Create color-circle divs for each color
+          product.colors.forEach((color, index) => {
+            const colorCircle = document.createElement("div");
+            colorCircle.classList.add(
+              "circle-color",
+              `circle-color${index + 1}`
+            );
+            colorCircle.style.backgroundColor = color.colorCode;
+            colorChoices.appendChild(colorCircle);
+          });
+
+          productDetails.appendChild(colorChoices);
+          productContentYouMayLike.appendChild(productDetails);
+
+          // Append productBox to the main section
+          flexYouMayLike.appendChild(productBoxYouMayLike);
+        }
+      });
+      // TAKE TO PRODUCT PAGE
+      const productBoxYouMayLike = document.querySelectorAll(
+        ".product-box-you-may-like"
+      );
+
+      productBoxYouMayLike.forEach((box) => {
+        box.addEventListener("click", (e) => {
+          let target = e.target;
+          let productIdBox = null;
+          // Search for the data-id attribute on the clicked element and its parent elements
+          while (target && !productIdBox) {
+            productIdBox = target.getAttribute("data-id");
+            target = target.parentElement;
+          }
+
+          // Call the dynamicProductPage function with the productId
+          console.log("Clicked product ID:", productIdBox);
+
+          window.location.href = `/product-page.html?id=${productIdBox}`;
+        });
+      });
     });
-  });
-
-  closeBtn.addEventListener("click", function () {
-    popup.style.display = "none";
-  });
-
-  let isDragging = false;
-  let startX, startY;
-
-  popupImage.addEventListener("mousedown", function (e) {
-    isDragging = true;
-    startX = e.clientX - popupImage.offsetLeft;
-    startY = e.clientY - popupImage.offsetTop;
-    popupImage.style.cursor = "grab";
-  });
-
-  document.addEventListener("mousemove", function (e) {
-    if (isDragging) {
-      popupImage.style.left = `${e.clientX - startX}px`;
-      popupImage.style.top = `${e.clientY - startY}px`;
-    }
-  });
-
-  document.addEventListener("mouseup", function () {
-    isDragging = false;
-    popupImage.style.cursor = "grab";
-  });
-
-  let zoomLevel = 1;
-
-  popupImage.addEventListener("wheel", function (e) {
-    e.preventDefault();
-    if (e.deltaY < 0) {
-      zoomLevel = Math.min(zoomLevel + 0.1, 4);
-    } else {
-      zoomLevel = Math.max(zoomLevel - 0.1, 0.5);
-    }
-    popupImage.style.transform = `scale(${zoomLevel})`;
-  });
 });
