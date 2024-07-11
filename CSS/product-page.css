@@ -392,84 +392,169 @@
 }
 
 .you-may-like .flex-you-may-like-carousel {
-  margin-top: 20px;
-}
-
-.you-may-like .flex-you-may-like-carousel {
   display: flex;
   justify-content: left;
   align-items: center;
   height: 500px;
   flex-direction: row;
   gap: 20px;
+  width: 100%;
+
+  margin-top: 20px;
 }
 
-.you-may-like .products-you-may-like {
+/* Custom scrollbar styles for WebKit browsers (Chrome, Safari) */
+.you-may-like .flex-you-may-like-carousel::-webkit-scrollbar {
+  height: 12px; /* Height of the horizontal scrollbar */
+}
+
+.you-may-like .flex-you-may-like-carousel::-webkit-scrollbar-track {
+  background: var(--background-color); /* Background of the scrollbar track */
+}
+
+.you-may-like .flex-you-may-like-carousel::-webkit-scrollbar-thumb {
+  background: #888; /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners for the scrollbar thumb */
+}
+
+.you-may-like .flex-you-may-like-carousel::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color when hovering over the scrollbar thumb */
+}
+
+/* Custom scrollbar styles for Firefox */
+.you-may-like .flex-you-may-like-carousel {
+  scrollbar-width: thin; /* Makes the scrollbar thinner */
+  scrollbar-color: #888 #f1f1f1; /* Thumb color and track color */
+}
+/* end of scrollbar */
+
+.you-may-like .flex-you-may-like-carousel .products-you-may-like {
   height: 500px;
   aspect-ratio: 4/6.5;
   cursor: pointer;
   transition-duration: 0.2s;
   border-radius: 5px;
+  width: 100%;
 }
-
-.you-may-like .products-you-may-like:hover {
+/* 
+.you-may-like .flex-you-may-like-carousel .products-you-may-like:hover {
   border: 1px solid var(--secondary-color);
   transform: scale(1.01);
-}
+} */
 
-.you-may-like .products-you-may-like .flex {
-  flex-direction: column;
+.you-may-like .flex-you-may-like-carousel .products-you-may-like .flex {
+  flex-direction: row;
   justify-content: start;
   align-items: start;
+  gap: 5px;
+  height: 100%;
+
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
-.you-may-like .product-image-you-may-like {
+.you-may-like
+  .flex-you-may-like-carousel
+  .products-you-may-like
+  .flex
+  .product-box-you-may-like {
   width: 100%;
-  background-color: var(--third-color);
-}
-
-.you-may-like .product-description-you-may-like {
-  width: 100%;
-  margin: 10px 5px 5px 5px;
-}
-
-.you-may-like .product-description-you-may-like .flex {
-  flex-direction: column;
   height: 100%;
 }
 
 .you-may-like
-  .product-description-you-may-like
+  .flex-you-may-like-carousel
+  .products-you-may-like
   .flex
-  .product-name-you-may-like
-  h1 {
-  font-size: 24px;
+  .product-box-you-may-like:hover {
+  border: 1px solid var(--secondary-color);
+  cursor: pointer;
 }
 
 .you-may-like
-  .product-description-you-may-like
+  .flex-you-may-like-carousel
+  .products-you-may-like
   .flex
-  .product-price-you-may-like
-  h4 {
-  font-weight: lighter;
-  font-size: 18px;
+  .product-box-you-may-like
+  .product-content-you-may-like {
+  margin: 0;
+  height: 80%;
 }
 
-.you-may-like .product-description-you-may-like .color-available {
+.you-may-like
+  .flex-you-may-like-carousel
+  .products-you-may-like
+  .flex
+  .product-box-you-may-like
+  .product-content-you-may-like
+  .box-inside-you-may-like {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 5;
+  background-color: var(--third-color);
+  padding: 1px;
+}
+
+.you-may-like
+  .flex-you-may-like-carousel
+  .products-you-may-like
+  .flex
+  .product-box-you-may-like
+  .product-content-you-may-like
+  .product-details-you-may-like {
+  margin: 10px;
+}
+
+.you-may-like
+  .flex-you-may-like-carousel
+  .products-you-may-like
+  .flex
+  .product-box-you-may-like
+  .product-content-you-may-like
+  .product-details-you-may-like {
+  display: flex;
+  flex-direction: column;
+}
+
+.you-may-like
+  .flex-you-may-like-carousel
+  .products-you-may-like
+  .flex
+  .product-box-you-may-like
+  .product-content-you-may-like
+  .product-details-you-may-like
+  .flex
+  .product-name-you-may-like
+  h1 {
+  font-size: 22px;
+}
+
+.you-may-like
+  .flex-you-may-like-carousel
+  .products-you-may-like
+  .flex
+  .product-box-you-may-like
+  .product-content-you-may-like
+  .product-details-you-may-like
+  .color-available {
+  display: flex;
   margin-top: 10px;
-}
-
-.you-may-like .product-description-you-may-like .color-available .flex {
-  flex-direction: row;
-  justify-content: left;
-  align-items: center;
   gap: 5px;
 }
 
-.you-may-like .product-description-you-may-like .color-available .circle-color {
-  width: 25px;
-  height: 25px;
+.you-may-like
+  .flex-you-may-like-carousel
+  .products-you-may-like
+  .flex
+  .product-box-you-may-like
+  .product-content-you-may-like
+  .product-details-you-may-like
+  .color-available
+  .circle-color {
+  width: 20px;
+  height: 20px;
   background-color: var(--third-color);
-  border-radius: 50%;
+  border-radius: 5px;
   border: 2px solid var(--secondary-color);
 }

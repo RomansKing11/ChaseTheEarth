@@ -103,7 +103,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
 // for new pieces section
 document.addEventListener("DOMContentLoaded", function () {
-  const productSection = document.getElementById("product-section");
+  const gridMainSection = document.getElementById("grid-main-page");
 
   // Fetch products from JSON file
   fetch("json-files/new-pieces.json")
@@ -142,11 +142,13 @@ document.addEventListener("DOMContentLoaded", function () {
         const img1 = document.createElement("img");
         img1.setAttribute("src", product.colors[0].images[0].image1);
         img1.classList.add("img1");
+        img1.classList.add("unselectable");
         boxInside.appendChild(img1);
 
         const img2 = document.createElement("img");
         img2.setAttribute("src", product.colors[0].images[0].image2);
         img2.classList.add("img2");
+        img2.classList.add("unselectable");
         img2.classList.add("hidden");
         boxInside.appendChild(img2);
 
@@ -185,7 +187,7 @@ document.addEventListener("DOMContentLoaded", function () {
         productDetails.appendChild(colorChoices);
 
         // Append productBox to the main section
-        productSection.appendChild(productBox);
+        gridMainSection.appendChild(productBox);
       });
       // TAKE TO PRODUCT PAGE
       const productBox = document.querySelectorAll(".product-box");
@@ -374,4 +376,138 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   }, 100); // Basically just add a delay of 50ms cause it was trying to access the classes before they were fully loaded.
+});
+
+// for you may also like section
+
+document.addEventListener("DOMContentLoaded", function () {
+  const flexYouMayLike = document.getElementById("flex-products-you-may-like");
+
+  // Fetch products from JSON file
+  fetch("json-files/TEMPORARY REPEATED PRODUCTS.json")
+    .then((response) => response.json())
+    .then((data) => {
+      const products = data;
+
+      // const numberOfProducts = products.colors;
+      // console.log(numberOfProducts);
+
+      // Create a set to store the unique product IDs
+      const uniqueProductIds = new Set();
+
+      // Limit the number of products to 8
+      const limitedProducts = products.slice(0, 8);
+
+      // Shuffle the limitedProducts array
+      for (let i = limitedProducts.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [limitedProducts[i], limitedProducts[j]] = [
+          limitedProducts[j],
+          limitedProducts[i],
+        ];
+      }
+
+      // Create a div for each product
+      limitedProducts.forEach((product) => {
+        if (!uniqueProductIds.has(product.id)) {
+          const productBoxYouMayLike = document.createElement("div");
+          productBoxYouMayLike.setAttribute("data-id", product.id);
+          productBoxYouMayLike.classList.add("product-box-you-may-like");
+          productBoxYouMayLike.addEventListener("mouseenter", () => {
+            img1.classList.add("hidden");
+            img2.classList.remove("hidden");
+          });
+          productBoxYouMayLike.addEventListener("mouseleave", () => {
+            img1.classList.remove("hidden");
+            img2.classList.add("hidden");
+          });
+
+          // Create product-content div
+          const productContentYouMayLike = document.createElement("div");
+          productContentYouMayLike.classList.add(
+            "product-content-you-may-like"
+          );
+
+          productBoxYouMayLike.appendChild(productContentYouMayLike);
+
+          // Create box-inside div
+          const boxInsideYouMayLike = document.createElement("div");
+          boxInsideYouMayLike.classList.add("box-inside-you-may-like");
+
+          // Create img tags for product images
+          const img1 = document.createElement("img");
+          img1.setAttribute("src", product.colors[0].images[0].image1);
+          img1.classList.add("img1");
+          img1.classList.add("unselectable");
+          boxInsideYouMayLike.appendChild(img1);
+
+          const img2 = document.createElement("img");
+          img2.setAttribute("src", product.colors[0].images[0].image2);
+          img2.classList.add("img2");
+          img2.classList.add("unselectable");
+          img2.classList.add("hidden");
+          boxInsideYouMayLike.appendChild(img2);
+
+          productContentYouMayLike.appendChild(boxInsideYouMayLike);
+
+          // Create product-details div
+          const productDetails = document.createElement("div");
+          productDetails.classList.add("product-details-you-may-like");
+
+          // Create product-name h3
+          const productName = document.createElement("h3");
+          productName.classList.add("product-name-you-may-like");
+          productName.textContent = product.name;
+          productDetails.appendChild(productName);
+
+          // Create product-price p
+          const productPrice = document.createElement("p");
+          productPrice.classList.add("product-price-you-may-like");
+          productPrice.textContent = product.price;
+          productDetails.appendChild(productPrice);
+
+          // Create color-choices div
+          const colorChoices = document.createElement("div");
+          colorChoices.classList.add("color-available");
+
+          // Create color-circle divs for each color
+          product.colors.forEach((color, index) => {
+            const colorCircle = document.createElement("div");
+            colorCircle.classList.add(
+              "circle-color",
+              `circle-color${index + 1}`
+            );
+            colorCircle.style.backgroundColor = color.colorCode;
+            colorChoices.appendChild(colorCircle);
+          });
+
+          productDetails.appendChild(colorChoices);
+          productContentYouMayLike.appendChild(productDetails);
+
+          // Append productBox to the main section
+          flexYouMayLike.appendChild(productBoxYouMayLike);
+        }
+      });
+      // TAKE TO PRODUCT PAGE
+      const productBoxYouMayLike = document.querySelectorAll(
+        ".product-box-you-may-like"
+      );
+
+      productBoxYouMayLike.forEach((box) => {
+        box.addEventListener("click", (e) => {
+          let target = e.target;
+          let productIdBox = null;
+          // Search for the data-id attribute on the clicked element and its parent elements
+          while (target && !productIdBox) {
+            productIdBox = target.getAttribute("data-id");
+            target = target.parentElement;
+          }
+
+          // Call the dynamicProductPage function with the productId
+          console.log("Clicked product ID:", productIdBox);
+
+          window.location.href = `/product-page.html?id=${productIdBox}`;
+        });
+      });
+    });
 });

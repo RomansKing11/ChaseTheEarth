@@ -264,3 +264,35 @@
                   </div>
                 </div>
               </div>
+
+              <div
+                      class="product-image-you-may-like unselectable"
+                      id="product-image"
+                    >
+                      <img
+                        src="images/cropped-baby angel black front simple -min.png"
+                        alt=""
+                      />
+                    </div>
+                    <div class="product-details-you-may-like">
+                      <div class="flex">
+                        <div
+                          class="product-name-you-may-like"
+                          id="product-name"
+                        >
+                          <h1>Sad Angel T-Shirt</h1>
+                        </div>
+                        <div
+                          class="product-price-you-may-like"
+                          id="product-price"
+                        >
+                          <h4>$19.99</h4>
+                        </div>
+                        <div class="color-available" id="color-available">
+                          <div class="flex">
+                            <div class="circle-color" id="circle-color1"></div>
+                            <div class="circle-color" id="circle-color2"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>

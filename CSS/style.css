@@ -88,6 +88,12 @@ img {
   font-size: 48px;
 }
 
+.main-section .grid {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+}
+
+/* 
 .main-section .flex {
   gap: 15px;
   margin: 20px 0;
@@ -95,12 +101,11 @@ img {
   height: 100%;
   align-items: center;
   justify-content: start;
-}
+} */
 
 .product-section .product-box {
-  width: 502px;
+  width: 100%;
   height: 100%;
-  aspect-ratio: 4 / 5;
   background-color: var(--background-color);
   transition-duration: 0.3s;
 }
@@ -116,7 +121,7 @@ img {
 
 .product-section .product-box .box-inside {
   position: relative;
-  width: 500px;
+  width: 100%;
   height: 100%;
   aspect-ratio: 4 / 5;
   background-color: var(--third-color);
